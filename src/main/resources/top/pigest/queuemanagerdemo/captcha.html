@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { font-family: "LXGW Wenkai", sans-serif; }
+    </style>
+</head>
+
+<body>
+
+<div>
+    <div id="captcha">
+        <div id="wait" class="show">
+            <div class="loading">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<script src="js/gt.js"></script>
+
+<script>
+    let validate = "";
+    let seccode = "";
+    var handler = function (captchaObj) {
+        captchaObj.onReady(function () {
+            captchaObj.verify();
+        }).onSuccess(function(){
+            var result = captchaObj.getValidate();
+            if (!result) {
+                return alert('请完成验证');
+            }
+            validate = result.geetest_validate;
+            seccode = result.geetest_seccode;
+        });
+    };
+    function getValidate() {
+        return validate;
+    }
+    function getSeccode() {
+        return seccode;
+    }
+    function man(gt, challenge) {
+        initGeetest({
+            gt: gt,
+            challenge: challenge,
+            offline: false,
+            new_captcha: true,
+
+            product: "bind",
+            width: "300px",
+            https: true
+        }, handler);
+    }
+</script>
+</body>
+
+</html>

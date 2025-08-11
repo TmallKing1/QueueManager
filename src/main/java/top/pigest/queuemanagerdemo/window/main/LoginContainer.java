@@ -1,0 +1,62 @@
+package top.pigest.queuemanagerdemo.window.main;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
+import top.pigest.queuemanagerdemo.QueueManager;
+import top.pigest.queuemanagerdemo.util.Utils;
+import top.pigest.queuemanagerdemo.widget.QMButton;
+import top.pigest.queuemanagerdemo.widget.WhiteFontIcon;
+
+public class LoginContainer extends BorderPane {
+    private final Label label = Utils.make(Utils.createLabel("欢迎使用排排队队\n登录你的哔哩哔哩账号以开始使用"), label -> {
+        label.setTextAlignment(TextAlignment.CENTER);
+    });
+    private final QMButton loginButton = Utils.make(new QMButton("点击登录哔哩哔哩账号"), button -> {
+        button.setPrefSize(350, 40);
+        button.setOnAction(actionEvent -> {
+            login();
+            switchLoginButtonState();
+        });
+        button.setDefaultButton(true);
+        button.setGraphic(new WhiteFontIcon("fas-sign-in-alt"));
+    });
+    private final QMButton exitButton = Utils.make(new QMButton("退出", "#bb5555"), button -> {
+        button.setPrefSize(200, 40);
+        button.setOnAction(actionEvent -> QueueManager.INSTANCE.close());
+        BorderPane.setAlignment(button, Pos.CENTER);
+        BorderPane.setMargin(button, new Insets(0, 0, 30, 0));
+    });
+    private final VBox vBox = new VBox(10);
+
+    public LoginContainer() {
+        super();
+        vBox.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(label, loginButton);
+        this.setCenter(vBox);
+        this.setBottom(exitButton);
+    }
+
+    private void login() {
+        QueueManager.INSTANCE.openLogin();
+    }
+
+    public void switchLoginButtonState() {
+        if (!loginButton.isDisable()) {
+            loginButton.disable(true);
+            loginButton.setText("请在弹出窗口中完成登录");
+            loginButton.setGraphic(new WhiteFontIcon("fas-bullseye"));
+        }  else {
+            loginButton.disable(false);
+            loginButton.setText("点击登录哔哩哔哩账号");
+            loginButton.setGraphic(new WhiteFontIcon("fas-sign-in-alt"));
+        }
+    }
+
+    public QMButton getLoginButton() {
+        return loginButton;
+    }
+}
