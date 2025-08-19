@@ -6,21 +6,15 @@ import javafx.util.Pair;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.cookie.BasicClientCookie;
-import org.apache.http.impl.cookie.BasicClientCookie2;
 import org.apache.http.util.EntityUtils;
 import top.pigest.queuemanagerdemo.Settings;
 
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
-import java.util.Optional;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -48,8 +42,7 @@ public class BiliTicket {
 
     public static Pair<String, String> getBiliTicket() throws Exception {
         long ts = System.currentTimeMillis() / 1000;
-        Optional<Cookie> biliJct = Settings.getCookieStore().getCookies().stream().filter(cookie -> cookie.getName().equals("bili_jct")).findFirst();
-        String csrf = biliJct.isPresent()? biliJct.get().getValue() : "";
+        String csrf = Settings.hasCookie("bili_jct") ? Settings.getCookie("bili_jct") : "";
         String hexSign = hmacSha256("XgwSnGZ1p", "ts" + ts);
         URI uri = new URIBuilder("https://api.bilibili.com/bapis/bilibili.api.ticket.v1.Ticket/GenWebTicket")
                 .addParameter("key_id", "ec02")
@@ -57,24 +50,24 @@ public class BiliTicket {
                 .addParameter("context[ts]", String.valueOf(ts))
                 .addParameter("csrf", csrf).build();
         HttpPost httpPost = new HttpPost(uri);
-        httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:141.0) Gecko/20100101 Firefox/141.0");
+        httpPost.setHeader("User-Agent", Settings.USER_AGENT);
         try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
             HttpResponse response = httpclient.execute(httpPost);
             JsonObject object = JsonParser.parseString(EntityUtils.toString(response.getEntity())).getAsJsonObject();
             if (object.get("code").getAsInt() == 0) {
-                if (Settings.getCookieStore().getCookies().stream().noneMatch(cookie -> cookie.getName().equals("bili_ticket"))) {
+                if (!Settings.hasCookie("bili_ticket")) {
                     String ticket = object.getAsJsonObject("data").get("ticket").getAsString();
                     long date = System.currentTimeMillis() + object.getAsJsonObject("data").get("ttl").getAsLong();
                     BasicClientCookie biliTicket = new BasicClientCookie("bili_ticket", ticket);
                     biliTicket.setDomain("bilibili.com");
                     biliTicket.setExpiryDate(new Date(date));
                     biliTicket.setPath("/");
-                    Settings.getCookieStore().addCookie(biliTicket);
+                    Settings.getBiliCookieStore().addCookie(biliTicket);
                     BasicClientCookie biliTicketExpires = new BasicClientCookie("bili_ticket_expires", ticket);
                     biliTicketExpires.setDomain("bilibili.com");
                     biliTicketExpires.setExpiryDate(new Date(date));
                     biliTicket.setPath("/");
-                    Settings.getCookieStore().addCookie(biliTicketExpires);
+                    Settings.getBiliCookieStore().addCookie(biliTicketExpires);
                     Settings.saveCookie(false);
                 }
                 JsonObject nav = object.getAsJsonObject("data").getAsJsonObject("nav");

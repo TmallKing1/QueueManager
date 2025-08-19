@@ -12,15 +12,9 @@ import top.pigest.queuemanagerdemo.widget.QMButton;
 import top.pigest.queuemanagerdemo.widget.WhiteFontIcon;
 
 public class LoginContainer extends BorderPane {
-    private final Label label = Utils.make(Utils.createLabel("欢迎使用排排队队\n登录你的哔哩哔哩账号以开始使用"), label -> {
-        label.setTextAlignment(TextAlignment.CENTER);
-    });
     private final QMButton loginButton = Utils.make(new QMButton("点击登录哔哩哔哩账号"), button -> {
         button.setPrefSize(350, 40);
-        button.setOnAction(actionEvent -> {
-            login();
-            switchLoginButtonState();
-        });
+        button.setOnAction(actionEvent -> login());
         button.setDefaultButton(true);
         button.setGraphic(new WhiteFontIcon("fas-sign-in-alt"));
     });
@@ -35,13 +29,15 @@ public class LoginContainer extends BorderPane {
     public LoginContainer() {
         super();
         vBox.setAlignment(Pos.CENTER);
+        Label label = Utils.createLabel("登录你的哔哩哔哩账号以开始使用");
         vBox.getChildren().addAll(label, loginButton);
         this.setCenter(vBox);
         this.setBottom(exitButton);
     }
 
-    private void login() {
-        QueueManager.INSTANCE.openLogin();
+    public void login() {
+        QueueManager.INSTANCE.openLoginMain();
+        switchLoginButtonState();
     }
 
     public void switchLoginButtonState() {

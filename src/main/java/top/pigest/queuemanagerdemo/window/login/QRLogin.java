@@ -2,11 +2,8 @@ package top.pigest.queuemanagerdemo.window.login;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import javafx.animation.KeyFrame;
@@ -15,7 +12,6 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
@@ -35,7 +31,6 @@ import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.widget.QMButton;
 import top.pigest.queuemanagerdemo.widget.WhiteFontIcon;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
@@ -92,10 +87,7 @@ class QRLogin extends BorderPane implements LoginMethodLocker {
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
         Platform.runLater(() -> {
             try {
-                BitMatrix bitMatrix = writer.encode(s, BarcodeFormat.QR_CODE, 270, 270, hints);
-                MatrixToImageWriter.writeToPath(bitMatrix, "PNG", Settings.DATA_DIRECTORY.toPath().resolve("qrcode.png"));
-                Image image = new Image(new FileInputStream(Settings.DATA_DIRECTORY.toPath().resolve("qrcode.png").toFile()));
-                this.imageView.setImage(image);
+                Utils.stringToQRCode(s, writer, hints, this.imageView);
                 this.stackPane.getChildren().add(imageView);
                 this.setBottom(hint);
                 this.timeline = createTimeline();
@@ -117,12 +109,12 @@ class QRLogin extends BorderPane implements LoginMethodLocker {
                     qrcodeKey = object.getAsJsonObject("data").get("qrcode_key").getAsString();
                     return object.getAsJsonObject("data").get("url").getAsString();
                 } else {
-                    this.loginMain.loginFail("二维码获取失败", true);
+                    Platform.runLater(() -> this.loginMain.loginFail("二维码获取失败", true));
                     return null;
                 }
             }
         } catch (Exception e) {
-            this.loginMain.loginFail("二维码获取失败", true);
+            Platform.runLater(() -> this.loginMain.loginFail("二维码获取失败\n" + e.getMessage(), true));
             return null;
         }
     }
@@ -130,7 +122,7 @@ class QRLogin extends BorderPane implements LoginMethodLocker {
     private Timeline createTimeline() {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.millis(500), event -> {
-                    try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
+                    try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
                         URI uri = new URIBuilder("https://passport.bilibili.com/x/passport-login/web/qrcode/poll")
                                 .addParameter("qrcode_key", qrcodeKey)
                                 .build();
@@ -163,7 +155,9 @@ class QRLogin extends BorderPane implements LoginMethodLocker {
     }
 
     protected void stopTimeline() {
-        timeline.stop();
+        if (timeline != null) {
+            timeline.stop();
+        }
     }
 
     public void loginFail() {

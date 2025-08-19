@@ -7,6 +7,8 @@ module top.pigest.queuemanagerdemo {
     requires com.jfoenix;
     requires java.desktop;
     requires java.net.http;
+    requires java.security.jgss;
+    requires jdk.crypto.ec;
     requires org.apache.httpcomponents.httpclient;
     requires com.google.gson;
     requires org.apache.httpcomponents.httpcore;
@@ -18,6 +20,8 @@ module top.pigest.queuemanagerdemo {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.fontawesome6;
     requires dec;
+    requires com.google.protobuf;
+    requires javafx.media;
 
     opens top.pigest.queuemanagerdemo to javafx.fxml;
     opens top.pigest.queuemanagerdemo.system to com.google.gson;
@@ -27,4 +31,6 @@ module top.pigest.queuemanagerdemo {
     exports top.pigest.queuemanagerdemo.widget;
     exports top.pigest.queuemanagerdemo.window.main;
     opens top.pigest.queuemanagerdemo.system.settings to com.google.gson;
+    exports top.pigest.queuemanagerdemo.system.netease;
+    opens top.pigest.queuemanagerdemo.system.netease to com.google.gson;
 }

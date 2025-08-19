@@ -9,7 +9,6 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.HBox;
@@ -62,8 +61,10 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
     });
     private final JFXTextField accountField;
     private final JFXTextField passwordField = Utils.make(new JFXTextField(), textField -> {
+        textField.setLabelFloat(true);
+        textField.setFocusColor(Paint.valueOf("#1a8bcc"));
         textField.setPrefWidth(240);
-        textField.setPromptText("输入短信验证码");
+        textField.setPromptText("验证码");
         textField.setFont(Settings.DEFAULT_FONT);
     });
     private int selectedCountry = 1;
@@ -89,25 +90,26 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
             this.accountField = Utils.make(new JFXTextField(), textField -> textField.setPrefWidth(280));
             new Thread(this::initCountries).start();
         }
-        this.accountField.setPromptText("输入手机号");
+        this.accountField.setLabelFloat(true);
+        this.accountField.setFocusColor(Paint.valueOf("#1a8bcc"));
+        this.accountField.setPromptText("手机号");
         this.accountField.setFont(Settings.DEFAULT_FONT);
         this.accountField.textProperty().addListener((observable, oldValue, newValue) -> loginButton.disable((accountField.getText().isEmpty() && !this.fromPassword) || passwordField.getText().isEmpty()));
         this.passwordField.textProperty().addListener((observable, oldValue, newValue) -> loginButton.disable((accountField.getText().isEmpty() && !this.fromPassword) || passwordField.getText().isEmpty()));
         this.accountField.setTextFormatter(new TextFormatter<>(change -> {
-            if (!this.fromPassword || change.getControlNewText().matches("\\d*")) {
+            if (this.fromPassword || change.getControlNewText().matches("\\d*")) {
                 return change;
             }
             return null;
         }));
         this.passwordField.setTextFormatter(new TextFormatter<>(change -> {
-            if (!this.fromPassword || change.getControlNewText().matches("\\d*")) {
+            if (change.getControlNewText().matches("\\d*")) {
                 return change;
             }
             return null;
         }));
         this.getChildren().add(Utils.make(new HBox(20), hBox -> {
             hBox.setAlignment(Pos.CENTER);
-            hBox.getChildren().add(Utils.createLabel("手机号", 80, Pos.CENTER_RIGHT));
             if (!this.fromPassword) {
                 hBox.getChildren().add(this.countryButton);
             }
@@ -115,7 +117,6 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
         }));
         this.getChildren().add(Utils.make(new HBox(20), hBox -> {
             hBox.setAlignment(Pos.CENTER);
-            hBox.getChildren().add(Utils.createLabel("验证码", 80, Pos.CENTER_RIGHT));
             hBox.getChildren().add(passwordField);
             hBox.getChildren().add(smsCodeButton);
         }));
@@ -137,7 +138,7 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
         this.loginButton.setGraphic(new WhiteFontIcon("fas-bullseye"));
 
         new Thread(() -> {
-            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
+            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
                 if (this.fromPassword) {
                     HttpPost httpPost = new HttpPost("https://passport.bilibili.com/x/safecenter/login/tel/verify");
                     httpPost.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
@@ -220,7 +221,7 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
             }
         } catch (IOException e) {
             Platform.runLater(() -> {
-                JFXDialog dialog = new JFXDialog(this.loginMain.getRootStackPane(), Utils.make(Utils.createLabel("获取国家与地区列表失败", "RED"), label -> {
+                JFXDialog dialog = new JFXDialog(this.loginMain.getRootStackPane(), Utils.make(Utils.createLabel("获取国家与地区列表失败\n" + e.getMessage(), "RED"), label -> {
                     JFXDialog.setMargin(label, new Insets(30, 30, 30, 30));
                 }), JFXDialog.DialogTransition.CENTER);
                 dialog.show();
@@ -282,7 +283,7 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
     @Override
     public void captchaSuccess(String token, String gt, String challenge, String validate, String seccode) {
         captcha.close();
-        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
+        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
             if (this.fromPassword) {
                 HttpPost httpPost = new HttpPost("https://passport.bilibili.com/x/safecenter/common/sms/send");
                 httpPost.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
@@ -320,12 +321,12 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
                 if (code == 0) {
                     captchaKey = object.getAsJsonObject("data").get("captcha_key").getAsString();
                 } else {
-                    Platform.runLater(() -> this.loginMain.showDialogMessage(object.get("message").getAsString() + "(%s)".formatted(code), "RED"));
+                    Platform.runLater(() -> this.loginMain.showDialogMessage(object.get("message").getAsString() + "(%s)".formatted(code), true));
                     return;
                 }
             }
         } catch (IOException e) {
-            Platform.runLater(() -> this.loginMain.showDialogMessage("获取验证码失败", "RED"));
+            Platform.runLater(() -> this.loginMain.showDialogMessage("获取验证码失败", true));
             return;
         }
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
@@ -380,9 +381,9 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
         SMSLogin smsLogin = new SMSLogin(true, loginMain);
         smsLogin.tmpCode = tmpCode;
         smsLogin.requestId = requestId;
-        smsLogin.accountField.setPromptText("获取中……");
+        smsLogin.accountField.setText("获取中……");
         new Thread(() -> {
-            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
+            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
                 URI uri = new URIBuilder("https://passport.bilibili.com/x/safecenter/user/info")
                         .addParameter("tmp_code", tmpCode)
                         .build();
@@ -390,10 +391,10 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
                 CloseableHttpResponse response = client.execute(httpGet);
                 JsonObject object = JsonParser.parseString(EntityUtils.toString(response.getEntity())).getAsJsonObject();
                 if (object.get("code").getAsInt() == 0) {
-                    smsLogin.accountField.setPromptText(object.getAsJsonObject("data").getAsJsonObject("account_info").get("hide_tel").getAsString());
+                    smsLogin.accountField.setText(object.getAsJsonObject("data").getAsJsonObject("account_info").get("hide_tel").getAsString());
                 }
             } catch (Exception e) {
-                smsLogin.accountField.setPromptText("获取失败");
+                smsLogin.accountField.setText("获取失败");
             }
         }).start();
         return smsLogin;
@@ -401,7 +402,7 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
 
     @Override
     public boolean lockLoginMethod() {
-        return captchaKey != null;
+        return captchaKey != null || fromPassword;
     }
 
     private record Country(int id, String cname, String countryId) {

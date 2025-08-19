@@ -40,7 +40,7 @@ public class DanmakuServiceSettings{
     @SerializedName("gift_combo_optimization")
     public boolean giftComboOptimization = false;
     @SerializedName("gift_combo_end_text")
-    public String giftComboEndText = "{user}总共投喂了{amount}个{gift}";
+    public String giftComboEndText = "{user}共投喂了{amount}个{gift}";
     @SerializedName("multi_guard_optimization")
     public boolean multiGuardOptimization = false;
     @SerializedName("multi_guard_text")
@@ -131,27 +131,48 @@ public class DanmakuServiceSettings{
 
 
     public enum NarratableElement{
-        ENTER("进房"),
-        DANMAKU("弹幕"),
-        GIFT("礼物"),
-        GUARD("上舰"),
-        SUPER_CHAT("SC");
+        ENTER("进房", Map.of("user", "进房用户名")),
+        DANMAKU("弹幕", Map.of("user", "发送者名称", "comment", "弹幕内容")),
+        GIFT("礼物", Map.of("user", "送礼用户名", "amount", "送礼数量", "gift", "礼物名称")),
+        GUARD("上舰", Map.of("user", "上舰用户名", "guard", "舰长/提督/总督")),
+        SUPER_CHAT("SC", Map.of("user", "发送者名称", "comment", "SC内容"));
+
+        private final String message;
+        private final Map<String, String> arguments;
+
+        NarratableElement(String message, Map<String, String> arguments) {
+            this.message = message;
+            this.arguments = arguments;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public Map<String, String> getArguments() {
+            return arguments;
+        }
+    }
+
+    public enum NarratorType{
+        DEFAULT("按序朗读（读完一条读下一条）"),
+        INTERRUPTED("打断朗读（停止当前朗读并读下一条）"),
+        STACKABLE("叠加朗读（不停止当前朗读并读下一条）");
 
         private final String message;
 
-        NarratableElement(String message) {
+        NarratorType(String message) {
             this.message = message;
         }
 
         public String getMessage() {
             return message;
         }
-    }
 
-    public enum NarratorType{
-        DEFAULT,
-        INTERRUPTED,
-        STACKABLE
+        @Override
+        public String toString() {
+            return this.message;
+        }
     }
 
 }

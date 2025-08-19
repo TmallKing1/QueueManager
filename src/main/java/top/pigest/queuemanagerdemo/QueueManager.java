@@ -3,7 +3,6 @@ package top.pigest.queuemanagerdemo;
 import javafx.application.Application;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import top.pigest.queuemanagerdemo.system.LiveMessageService;
 import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.window.login.LoginMain;
 import top.pigest.queuemanagerdemo.window.main.MainScene;
@@ -16,6 +15,7 @@ public class QueueManager extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        System.setProperty("prism.lcdtext", "true");
         INSTANCE = this;
         this.primaryStage = primaryStage;
         primaryStage.setResizable(false);
@@ -23,8 +23,8 @@ public class QueueManager extends Application {
         primaryStage.setScene(new MainScene());
         primaryStage.setOnCloseRequest(event -> {
             MainScene scene = (MainScene) primaryStage.getScene();
-            if (scene.getRootStackPane().getChildren().stream().noneMatch(node -> node.getId() != null && node.getId().equals("close-confirm"))) {
-                Utils.showChoosingDialog("确认关闭所有服务并关闭程序？", "确认", "取消", event1 -> System.exit(0), event1 -> {}, scene.getRootStackPane());
+            if (scene.getRootDrawer().getChildren().stream().noneMatch(node -> node.getId() != null && node.getId().equals("close-confirm"))) {
+                Utils.showChoosingDialog("确认关闭程序？", "确认", "取消", event1 -> System.exit(0), event1 -> {}, scene.getRootDrawer());
             }
             event.consume();
         });
@@ -36,18 +36,18 @@ public class QueueManager extends Application {
         launch(args);
     }
 
-    public void openLogin() {
-        login = new Stage();
-        login.setResizable(false);
-        login.setTitle("账号登录");
-        login.initOwner(primaryStage);
-        login.initModality(Modality.WINDOW_MODAL);
-        login.setScene(new LoginMain());
-        login.setOnCloseRequest(event -> {
+    public void openLoginMain() {
+        this.login = new Stage();
+        this.login.setResizable(false);
+        this.login.setTitle("账号登录");
+        this.login.initOwner(primaryStage);
+        this.login.initModality(Modality.WINDOW_MODAL);
+        this.login.setScene(new LoginMain());
+        this.login.setOnCloseRequest(event -> {
             ((MainScene) (primaryStage.getScene())).switchLoginButtonState();
-            ((LoginMain) login.getScene()).stopTimeLine();
+            ((LoginMain) this.login.getScene()).stopTimeline();
         });
-        login.show();
+        this.login.show();
     }
 
     public void closeLogin() {

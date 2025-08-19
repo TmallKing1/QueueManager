@@ -1,17 +1,12 @@
 package top.pigest.queuemanagerdemo.window.login;
 
-import com.jfoenix.controls.JFXDialog;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.TextAlignment;
 import top.pigest.queuemanagerdemo.QueueManager;
-import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.widget.QMButton;
 
@@ -68,7 +63,7 @@ public class LoginMain extends Scene {
         if (this.loginMethod == loginMethod) {
             return;
         }
-        this.stopTimeLine();
+        this.stopTimeline();
         this.loginMethodButtons.getChildren().forEach(child -> child.setStyle("-fx-background-color: #999999"));
         this.loginMethod = loginMethod;
         this.loginMethodButtons.getChildren().get(loginMethod.ordinal()).setStyle("-fx-background-color: #1f1e33;");
@@ -79,7 +74,7 @@ public class LoginMain extends Scene {
         }
     }
 
-    public void stopTimeLine() {
+    public void stopTimeline() {
         if (this.loginMethod == LoginMethod.QRCODE) {
             ((QRLogin) this.borderPane.getCenter()).stopTimeline();
         }
@@ -103,15 +98,15 @@ public class LoginMain extends Scene {
 
     public void loginFail(String failMessage, boolean isError) {
         this.lockLoginMethodButtons(false);
-        showDialogMessage(failMessage, isError ? "RED" : "BLACK");
+        showDialogMessage(failMessage, isError);
     }
 
     public void showDialogMessage(String message) {
-        this.showDialogMessage(message, "BLACK");
+        this.showDialogMessage(message, false);
     }
 
-    public void showDialogMessage(String message, String color) {
-        Utils.showDialogMessage(message, color, root);
+    public void showDialogMessage(String message, boolean isError) {
+        Utils.showDialogMessage(message, isError, root);
 
     }
 

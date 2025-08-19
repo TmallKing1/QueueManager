@@ -2,6 +2,7 @@ package top.pigest.queuemanagerdemo.system;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.protobuf.InvalidProtocolBufferException;
 import top.pigest.queuemanagerdemo.QueueManager;
 import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.system.settings.DanmakuServiceSettings;
@@ -11,55 +12,64 @@ import java.util.*;
 
 public class NarratorService {
     private static Thread CHECK_THREAD;
-    private static List<Process> PROCESSES;
+    private static final List<Process> PROCESSES = new ArrayList<>();
     private static BufferedWriter WRITER;
     private static final List<String> WAIT_FOR_SPEAKING = new ArrayList<>();
+    private static final List<GiftComboSession> GIFT_COMBO_SESSIONS = new ArrayList<>();
 
-    public static void startSpeaking(String text) {
+    public static void speakNext(String text) {
         try {
             DanmakuServiceSettings settings = Settings.getDanmakuServiceSettings();
-            startSpeaking(WAIT_FOR_SPEAKING.removeFirst(), settings.narratorRate, settings.narratorVolume, settings.narratorVoiceName);
+            speakNext(text, settings.narratorRate, settings.narratorVolume, settings.narratorVoiceName);
         } catch (Exception ignored) {
         }
     }
 
-    public static void startSpeaking(String text, double rate, int volume, String voice) throws IOException {
+    public static void startSpeaking() throws IOException {
         ProcessBuilder pb = new ProcessBuilder(
                 "powershell", "-NoExit", "-Command", "-");
         Process process = pb.start();
         PROCESSES.add(process);
         WRITER = new BufferedWriter(new OutputStreamWriter(process.getOutputStream(), "GBK"));
 
-        String command = "Add-Type -AssemblyName System.speech\n" +
-                "$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer\n" +
-                "$speak.Rate = " + rate + "\n" +
-                "$speak.Volume = " + volume + "\n" +
-                (voice != null ? "$speak.SelectVoice('" + voice.replace("'", "''") + "'); " : "") +
-                "$speak.Speak('" + text.replace("'", "''") + "')\n" +
-                "exit\n";
+        String command = """
+                Add-Type -AssemblyName System.speech
+                $speak = New-Object System.Speech.Synthesis.SpeechSynthesizer
+                """;
         WRITER.write(command);
         WRITER.flush();
-        WRITER.close();
+        //WRITER.close();
+    }
+
+    public static void speakNext(String text, double rate, int volume, String voice) throws IOException {
+        if (PROCESSES.stream().noneMatch(Process::isAlive)) {
+            startSpeaking();
+        }
+        String command = "$speak.Rate = %s\n$speak.Volume = %d\n%s$speak.SpeakAsync('%s')\n".formatted(rate, volume, voice != null ? "$speak.SelectVoice('" + voice.replace("'", "''") + "'); " : "", text.replace("'", "''"));
+        WRITER.write(command);
+        WRITER.flush();
+    }
+
+    public static void speakIndependent(String text, double rate, int volume, String voice) throws IOException {
+        ProcessBuilder pb = new ProcessBuilder("powershell", "-NoExit", "-Command", "-");
+        Process process = pb.start();
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream(), "GBK"));
+        String command = "Add-Type -AssemblyName System.speech\n$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer\n$speak.Rate = %s\n$speak.Volume = %d\n%s$speak.SpeakAsync('%s')\n".formatted(rate, volume, voice != null ? "$speak.SelectVoice('" + voice.replace("'", "''") + "'); " : "", text.replace("'", "''"));
+        writer.write(command);
+        writer.flush();
     }
 
     public static void stopSpeaking() {
-        if (isSpeaking()) {
+        PROCESSES.forEach(process -> {
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));
             try {
-                WRITER.write("$speak.Speak('', [System.Speech.Synthesis.SpeakFlags]::PurgeBeforeSpeak)\n");
-                WRITER.write("exit\n");
-                WRITER.flush();
+                writer.write("$speak.SpeakAsyncCancelAll()\n");
+                writer.flush();
             } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                PROCESSES.forEach(Process::destroy);
-                try {
-                    WRITER.close();
-                } catch (IOException ignored) {
-                }
-                PROCESSES.clear();
-                WRITER = null;
             }
-        }
+            process.destroy();
+        });
+        PROCESSES.clear();
     }
 
     public static List<Voice> getAvailableVoices() {
@@ -112,47 +122,66 @@ public class NarratorService {
         return voices;
     }
 
-    public static boolean isSpeaking() {
-        return PROCESSES.stream().anyMatch(Process::isAlive);
-    }
-
     public static void handleSingleDanmaku(JsonObject jsonObject) {
-        if (Settings.getDanmakuServiceSettings().narratorEnabled && Settings.getDanmakuServiceSettings().acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.DANMAKU)) {
+        DanmakuServiceSettings settings = Settings.getDanmakuServiceSettings();
+        if (settings.narratorEnabled && settings.acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.DANMAKU)) {
             JsonArray info = jsonObject.getAsJsonArray("info");
             String text = info.get(1).getAsString();
             String userName = info.get(2).getAsJsonArray().get(1).getAsString();
-            String bar = Settings.getDanmakuServiceSettings().getNarratorText(DanmakuServiceSettings.NarratableElement.DANMAKU);
-            bar = bar.replace("{user}", userName).replace("{comment}", text);
+            String bar = settings.getNarratorText(DanmakuServiceSettings.NarratableElement.DANMAKU)
+                    .replace("{user}", userName)
+                    .replace("{comment}", text);
             addString(bar);
         }
     }
 
     public static void handleInteract(JsonObject jsonObject) {
-        if (Settings.getDanmakuServiceSettings().narratorEnabled && Settings.getDanmakuServiceSettings().acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.ENTER)) {
-            int type = jsonObject.getAsJsonObject("data").get("msg_type").getAsInt();
-            if (type == 1) {
-                String userName = jsonObject.getAsJsonObject("data").get("uname").getAsString();
-                String bar = Settings.getDanmakuServiceSettings().getNarratorText(DanmakuServiceSettings.NarratableElement.ENTER);
-                bar = bar.replace("{user}", userName);
-                addString(bar);
+        DanmakuServiceSettings settings = Settings.getDanmakuServiceSettings();
+        if (settings.narratorEnabled && settings.acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.ENTER)) {
+            byte[] bytes = Base64.getDecoder().decode(jsonObject.getAsJsonObject("data").get("pb").getAsString());
+            try {
+                InteractWordOuterClass.InteractWord interactWord = InteractWordOuterClass.InteractWord.parseFrom(bytes);
+                if (interactWord.getMsgType() == 1) {
+                    String userName = interactWord.getUname();
+                    String bar = settings.getNarratorText(DanmakuServiceSettings.NarratableElement.ENTER)
+                            .replace("{user}", userName);
+                    addString(bar);
+                }
+            } catch (InvalidProtocolBufferException e) {
+                throw new RuntimeException(e);
             }
         }
     }
 
     public static void handleGift(JsonObject jsonObject) {
-        if (Settings.getDanmakuServiceSettings().narratorEnabled && Settings.getDanmakuServiceSettings().acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.GIFT)) {
+        GIFT_COMBO_SESSIONS.removeIf(GiftComboSession::isDead);
+        DanmakuServiceSettings settings = Settings.getDanmakuServiceSettings();
+        if (settings.narratorEnabled && settings.acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.GIFT)) {
             String userName = jsonObject.getAsJsonObject("data").get("uname").getAsString();
+            int num =  jsonObject.getAsJsonObject("data").get("num").getAsInt();
             String giftName = jsonObject.getAsJsonObject("data").get("giftName").getAsString();
-            String bar = Settings.getDanmakuServiceSettings().getNarratorText(DanmakuServiceSettings.NarratableElement.GIFT);
-            bar = bar.replace("{user}", userName);
-            bar = bar.replace("{gift}", giftName);
+            if (settings.giftComboOptimization) {
+                Optional<GiftComboSession> optional = GIFT_COMBO_SESSIONS.stream().filter(s -> s.getUserName().equals(userName) && s.getGiftName().equals(giftName) && !s.isDead()).findFirst();
+                if (optional.isPresent()) {
+                    optional.get().onNewGiftReceived(num);
+                    return;
+                } else {
+                    GIFT_COMBO_SESSIONS.add(new GiftComboSession(userName, giftName, num));
+                }
+            }
+            String bar = settings.getNarratorText(DanmakuServiceSettings.NarratableElement.GIFT)
+                    .replace("{user}", userName)
+                    .replace("{amount}", String.valueOf(num))
+                    .replace("{gift}", giftName);
             addString(bar);
         }
     }
 
     public static void handleGuard(JsonObject jsonObject) {
-        if (Settings.getDanmakuServiceSettings().narratorEnabled && Settings.getDanmakuServiceSettings().acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.GUARD)) {
+        DanmakuServiceSettings settings = Settings.getDanmakuServiceSettings();
+        if (settings.narratorEnabled && settings.acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.GUARD)) {
             String userName = jsonObject.getAsJsonObject("data").get("username").getAsString();
+            int num = jsonObject.getAsJsonObject("data").get("num").getAsInt();
             int guardLevel = jsonObject.getAsJsonObject("data").get("guard_level").getAsInt();
             String guardName = switch (guardLevel) {
                 case 1 -> "舰长";
@@ -160,20 +189,28 @@ public class NarratorService {
                 case 3 -> "总督";
                 default -> "鬼知道B站又出了什么新的东西";
             };
-            String bar = Settings.getDanmakuServiceSettings().getNarratorText(DanmakuServiceSettings.NarratableElement.GUARD);
-            bar = bar.replace("{user}", userName);
-            bar = bar.replace("{guard}", guardName);
+            String bar;
+            if (settings.multiGuardOptimization) {
+                bar = settings.multiGuardText;
+
+            } else {
+                bar = settings.getNarratorText(DanmakuServiceSettings.NarratableElement.GUARD);
+            }
+            bar = bar.replace("{user}", userName)
+                    .replace("{amount}", String.valueOf(num))
+                    .replace("{guard}", guardName);
             addString(bar);
         }
     }
 
     public static void handleSuperChat(JsonObject jsonObject) {
-        if (Settings.getDanmakuServiceSettings().narratorEnabled && Settings.getDanmakuServiceSettings().acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.SUPER_CHAT)) {
+        DanmakuServiceSettings settings = Settings.getDanmakuServiceSettings();
+        if (settings.narratorEnabled && settings.acceptedTypes.contains(DanmakuServiceSettings.NarratableElement.SUPER_CHAT)) {
             String userName = jsonObject.getAsJsonObject("data").getAsJsonObject("user_info").get("uname").getAsString();
             String message = jsonObject.getAsJsonObject("data").get("message").getAsString();
-            String bar = Settings.getDanmakuServiceSettings().getNarratorText(DanmakuServiceSettings.NarratableElement.SUPER_CHAT);
-            bar = bar.replace("{user}", userName);
-            bar = bar.replace("{comment}", message);
+            String bar = settings.getNarratorText(DanmakuServiceSettings.NarratableElement.SUPER_CHAT)
+                    .replace("{user}", userName)
+                    .replace("{comment}", message);
             addString(bar);
         }
     }
@@ -185,30 +222,68 @@ public class NarratorService {
                 while (!WAIT_FOR_SPEAKING.isEmpty()) {
                     DanmakuServiceSettings settings = Settings.getDanmakuServiceSettings();
                     switch (settings.narratorType) {
-                        case DEFAULT -> {
-                            Timer timer = new Timer();
-                            timer.scheduleAtFixedRate(new TimerTask() {
-                                @Override
-                                public void run() {
-                                    if (!isSpeaking()) {
-                                        PROCESSES.removeIf(process -> !process.isAlive());
-                                        startSpeaking(WAIT_FOR_SPEAKING.removeFirst());
-                                    }
-                                }
-                            }, 0, 200);
-                        }
+                        case DEFAULT -> speakNext(WAIT_FOR_SPEAKING.removeFirst());
                         case INTERRUPTED -> {
                             stopSpeaking();
-                            startSpeaking(WAIT_FOR_SPEAKING.removeFirst());
+                            speakNext(WAIT_FOR_SPEAKING.removeFirst());
                         }
                         case STACKABLE -> {
-                            PROCESSES.removeIf(process -> !process.isAlive());
-                            startSpeaking(WAIT_FOR_SPEAKING.removeFirst());
+                            try {
+                                speakIndependent(WAIT_FOR_SPEAKING.removeFirst(), settings.narratorRate, settings.narratorVolume, settings.narratorVoiceName);
+                            } catch (IOException ignored) {
+                            }
                         }
                     }
                 }
             });
             CHECK_THREAD.start();
+        }
+    }
+
+    public static class GiftComboSession {
+        private Timer timer;
+        private final String userName;
+        private final String giftName;
+        private final int firstCount;
+        private long startTime;
+        private int count;
+        public GiftComboSession(String userName, String giftName, int count) {
+            this.userName = userName;
+            this.giftName = giftName;
+            this.firstCount = count;
+            this.onNewGiftReceived(count);
+        }
+
+        public String getUserName() {
+            return userName;
+        }
+
+        public String getGiftName() {
+            return giftName;
+        }
+
+        public void onNewGiftReceived(int count) {
+            this.count += count;
+            if (this.timer != null) {
+                this.timer.cancel();
+            }
+            this.timer = new Timer();
+            this.timer.schedule(new TimerTask() {
+                public void run() {
+                    if (Settings.getDanmakuServiceSettings().giftComboOptimization && GiftComboSession.this.count > GiftComboSession.this.firstCount) {
+                        String bar = Settings.getDanmakuServiceSettings().giftComboEndText
+                                .replace("{user}", userName)
+                                .replace("{amount}", String.valueOf(GiftComboSession.this.count))
+                                .replace("{gift}", giftName);
+                        addString(bar);
+                    }
+                }
+            }, 5000);
+            this.startTime = System.currentTimeMillis();
+        }
+
+        public boolean isDead() {
+            return System.currentTimeMillis() - this.startTime > 5000;
         }
     }
 

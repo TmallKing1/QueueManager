@@ -1,15 +1,13 @@
-import org.gradle.internal.classpath.Instrumented.systemProperty
-
 plugins {
     java
     application
     id("org.javamodularity.moduleplugin") version "1.8.12"
-    id("org.openjfx.javafxplugin") version "0.0.13"
-    id("org.beryx.jlink") version "2.25.0"
+    id("org.openjfx.javafxplugin") version "0.1.0"
+    id("org.beryx.jlink") version "3.1.1"
 }
 
 group = "top.pigest"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     maven(url = "https://maven.aliyun.com/repository/public/")
@@ -46,6 +44,7 @@ dependencies {
     implementation("com.google.zxing:javase:3.5.3")
     implementation("org.apache.httpcomponents:httpclient:4.5.14")
     implementation("org.brotli:dec:0.1.2")
+    implementation("com.google.protobuf:protobuf-java:4.32.0-RC2")
     //implementation("org.controlsfx:controlsfx:11.2.1")
     /*implementation("com.dlsc.formsfx:formsfx-core:11.6.0") {
         exclude(group = "org.openjfx")

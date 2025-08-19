@@ -1,5 +1,6 @@
 package top.pigest.queuemanagerdemo.window.main;
 
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -17,10 +18,6 @@ import java.util.function.Supplier;
 
 public abstract class MultiMenuProvider<T extends Node> extends BorderPane implements ChildContainer {
     public static final BorderStroke DEFAULT_BORDER_STROKE =
-            new BorderStroke(Paint.valueOf("0x22222233"), Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT,
-                    BorderStrokeStyle.SOLID, null, null, null,
-                    CornerRadii.EMPTY, new BorderWidths(1), Insets.EMPTY);
-    public static final BorderStroke DOWN_BORDER_STROKE =
             new BorderStroke(Color.TRANSPARENT, Color.TRANSPARENT, Paint.valueOf("0x22222233"), Color.TRANSPARENT,
                     BorderStrokeStyle.SOLID, null, null, null,
                     CornerRadii.EMPTY, new BorderWidths(1), Insets.EMPTY);
@@ -30,7 +27,6 @@ public abstract class MultiMenuProvider<T extends Node> extends BorderPane imple
 
     public MultiMenuProvider() {
         super();
-        this.setInnerContainer(this.getMenus().entrySet().iterator().next().getValue().get());
     }
 
     public abstract LinkedHashMap<String, Supplier<T>> getMenus();

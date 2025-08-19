@@ -2,17 +2,26 @@ package top.pigest.queuemanagerdemo.util;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXSnackbar;
+import com.jfoenix.effects.JFXDepthManager;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.TextAlignment;
+import javafx.util.Duration;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.methods.HttpGet;
@@ -24,9 +33,11 @@ import org.apache.http.util.EntityUtils;
 import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.widget.QMButton;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class Utils {
@@ -35,14 +46,25 @@ public class Utils {
         return object;
     }
 
-    public static void showDialogMessage(String message, String color, StackPane rootStackPane) {
-        JFXDialog dialog = new JFXDialog(rootStackPane, make(new Label(message), label -> {
-            label.setFont(Settings.DEFAULT_FONT);
-            label.setTextFill(Paint.valueOf(color));
-            label.setTextAlignment(TextAlignment.CENTER);
-            JFXDialog.setMargin(label, new Insets(30, 30, 30, 30));
-        }), JFXDialog.DialogTransition.CENTER);
-        dialog.show();
+    public static void showDialogMessage(String message, boolean isError, StackPane rootStackPane) {
+        showDialogMessage(message, isError, rootStackPane, 5);
+    }
+
+    public static void showDialogMessage(String message, boolean isError, StackPane rootStackPane, double duration) {
+        JFXSnackbar snackbar = new JFXSnackbar(rootStackPane);
+        snackbar.setPrefWidth(400);
+        Label toast = new Label();
+        toast.setMinWidth(Control.USE_PREF_SIZE);
+        toast.setWrapText(true);
+        toast.setText(message);
+        toast.setFont(Settings.DEFAULT_FONT);
+        toast.setTextFill(Paint.valueOf(isError ? "##FF6060" : "WHITE"));
+        StackPane toastContainer = new StackPane(toast);
+        toastContainer.setPadding(new Insets(10, 20, 10, 20));
+        toastContainer.setBackground(new Background(new BackgroundFill(Paint.valueOf("#1f1e33"), new CornerRadii(3), Insets.EMPTY)));
+        JFXDepthManager.setDepth(toastContainer, 2);
+        JFXSnackbar.SnackbarEvent snackbarEvent = new JFXSnackbar.SnackbarEvent(toastContainer, Duration.seconds(duration));
+        snackbar.enqueue(snackbarEvent);
     }
 
     public static void showChoosingDialog(String message, String strA, String strB, Consumer<ActionEvent> actionA, Consumer<ActionEvent> actionB, StackPane rootStackPane) {
@@ -104,7 +126,7 @@ public class Utils {
             try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(cookieStore).build()) {
                 HttpGet httpGet = new HttpGet("https://api.bilibili.com/x/frontend/finger/spi");
                 httpGet.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
-                httpGet.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:141.0) Gecko/20100101 Firefox/141.0");
+                httpGet.setHeader("User-Agent", Settings.USER_AGENT);
                 HttpResponse response = client.execute(httpGet);
                 JsonObject object = JsonParser.parseString(EntityUtils.toString(response.getEntity())).getAsJsonObject();
                 String b3 = object.getAsJsonObject("data").get("b_3").getAsString();
@@ -113,14 +135,21 @@ public class Utils {
                 buvid3.setDomain("bilibili.com");
                 buvid3.setExpiryDate(new Date(System.currentTimeMillis() + 400L * 24 * 3600 * 1000));
                 buvid3.setPath("/");
-                Settings.getCookieStore().addCookie(buvid3);
+                Settings.getBiliCookieStore().addCookie(buvid3);
                 BasicClientCookie buvid4 = new BasicClientCookie("buvid4", b4);
                 buvid4.setDomain("bilibili.com");
                 buvid3.setExpiryDate(new Date(System.currentTimeMillis() + 400L * 24 * 3600 * 1000));
                 buvid3.setPath("/");
-                Settings.getCookieStore().addCookie(buvid4);
+                Settings.getBiliCookieStore().addCookie(buvid4);
                 Settings.saveCookie(false);
             }
         }
+    }
+
+    public static void stringToQRCode(String s, QRCodeWriter writer, Map<EncodeHintType, Object> hints, ImageView imageView) throws WriterException, IOException {
+        BitMatrix bitMatrix = writer.encode(s, BarcodeFormat.QR_CODE, 270, 270, hints);
+        MatrixToImageWriter.writeToPath(bitMatrix, "PNG", Settings.DATA_DIRECTORY.toPath().resolve("qrcode.png"));
+        Image image = new Image(new FileInputStream(Settings.DATA_DIRECTORY.toPath().resolve("qrcode.png").toFile()));
+        imageView.setImage(image);
     }
 }

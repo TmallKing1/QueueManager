@@ -32,4 +32,9 @@ public class SaveSettings {
     public DanmakuServiceSettings getDanmakuServiceSettings() {
         return danmakuServiceSettings;
     }
+
+    public void resetDanmakuServiceSettings() {
+        this.danmakuServiceSettings = new DanmakuServiceSettings();
+        Settings.saveSettings();
+    }
 }

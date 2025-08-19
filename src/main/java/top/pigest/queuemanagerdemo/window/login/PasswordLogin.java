@@ -6,7 +6,6 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
@@ -48,13 +47,17 @@ class PasswordLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
         button.setGraphic(new WhiteFontIcon("fas-sign-in-alt"));
     });
     private final JFXTextField accountField = Utils.make(new JFXTextField(), textField -> {
+        textField.setLabelFloat(true);
+        textField.setFocusColor(Paint.valueOf("#1a8bcc"));
         textField.setPrefWidth(400);
-        textField.setPromptText("输入邮箱/手机号");
+        textField.setPromptText("邮箱/手机号");
         textField.setFont(Settings.DEFAULT_FONT);
     });
     private final JFXPasswordField passwordField = Utils.make(new JFXPasswordField(), passwordField -> {
+        passwordField.setLabelFloat(true);
+        passwordField.setFocusColor(Paint.valueOf("#1a8bcc"));
         passwordField.setPrefWidth(400);
-        passwordField.setPromptText("输入密码");
+        passwordField.setPromptText("密码");
         passwordField.setFont(Settings.DEFAULT_FONT);
     });
     private String account;
@@ -68,12 +71,10 @@ class PasswordLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
         this.setAlignment(Pos.CENTER);
         this.getChildren().add(Utils.make(new HBox(20), hBox -> {
             hBox.setAlignment(Pos.CENTER);
-            hBox.getChildren().add(Utils.createLabel("账号", 80, Pos.CENTER_RIGHT));
             hBox.getChildren().add(accountField);
         }));
         this.getChildren().add(Utils.make(new HBox(20), hBox -> {
             hBox.setAlignment(Pos.CENTER);
-            hBox.getChildren().add(Utils.createLabel("密码", 80, Pos.CENTER_RIGHT));
             hBox.getChildren().add(passwordField);
         }));
         this.getChildren().add(loginButton);
@@ -120,9 +121,9 @@ class PasswordLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
 
     private void loginStage3(String encryptedPassword, String token, String challenge, String validate, String seccode) {
         Platform.runLater(() -> this.loginButton.setText("登录中(3/3)"));
-        try (CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
+        try (CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
             HttpClientContext context = HttpClientContext.create();
-            context.setCookieStore(Settings.getCookieStore());
+            context.setCookieStore(Settings.getBiliCookieStore());
             HttpPost httpPost = new HttpPost("https://passport.bilibili.com/x/passport-login/web/login");
             httpPost.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
             httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -142,7 +143,7 @@ class PasswordLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
                 if (code == 0) {
                     JsonObject data = element.getAsJsonObject("data");
                     if (!data.get("message").getAsString().isEmpty()) {
-                        loginFail(data.get("message").getAsString() + "\n请点击周围关闭此对话框并完成验证", false);
+                        loginFail(data.get("message").getAsString(), false);
                         String url = data.get("url").getAsString();
                         String tmpCode = url.substring(url.indexOf("tmp_token=") + 10);
                         if (tmpCode.indexOf("&") > 0) {
