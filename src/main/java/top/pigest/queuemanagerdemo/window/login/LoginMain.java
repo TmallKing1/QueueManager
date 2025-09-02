@@ -14,7 +14,6 @@ public class LoginMain extends Scene {
     private LoginMethod loginMethod;
     private final StackPane root = new StackPane();
     private final BorderPane borderPane = new BorderPane();
-    private final BorderPane header =  new BorderPane();
     private final HBox loginMethodButtons = Utils.make(new HBox(30), hBox -> {
         hBox.setAlignment(Pos.CENTER);
         hBox.getChildren().add(Utils.make(new QMButton("账密登录", "#555555"), button -> {
@@ -35,6 +34,7 @@ public class LoginMain extends Scene {
         super(new Pane(), 640, 480, false, SceneAntialiasing.BALANCED);
         this.setRoot(root);
         root.getChildren().add(borderPane);
+        BorderPane header = new BorderPane();
         borderPane.setTop(header);
         header.setTop(Utils.make(Utils.createLabel("选择登录方式"), label -> {
             BorderPane.setAlignment(label, Pos.CENTER);
@@ -51,9 +51,7 @@ public class LoginMain extends Scene {
 
         LoginMethodLocker loginMethodLocker = ((LoginMethodLocker) this.borderPane.getCenter());
         if (loginMethodLocker.lockLoginMethod()) {
-            Utils.showChoosingDialog("确认放弃当前的信息并切换登录方式？", "确认", "取消", actionEvent -> {
-                setLoginMethod(loginMethod);
-            }, actionEvent -> {}, this.getRootStackPane());
+            Utils.showChoosingDialog("确认放弃当前的信息并切换登录方式？", "确认", "取消", actionEvent -> setLoginMethod(loginMethod), actionEvent -> {}, this.getRootStackPane());
         } else {
             setLoginMethod(loginMethod);
         }

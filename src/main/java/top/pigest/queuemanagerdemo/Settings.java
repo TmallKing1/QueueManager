@@ -47,12 +47,13 @@ public class Settings {
     public static final RequestConfig DEFAULT_REQUEST_CONFIG = RequestConfig.custom().setConnectTimeout(5000).setSocketTimeout(5000).setCookieSpec(CookieSpecs.STANDARD).build();
     private static final File COOKIE_STORE_FILE = DATA_DIRECTORY.toPath().resolve("cookies.ser").toFile();
     private static final File SAVE_SETTINGS_FILE = DATA_DIRECTORY.toPath().resolve("settings.json").toFile();
-    private static final String REFRESH_PUBLIC_KEY = "-----BEGIN PUBLIC KEY-----\n" +
-            "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDLgd2OAkcGVtoE3ThUREbio0Eg\n" +
-            "Uc/prcajMKXvkCKFCWhJYJcLkcM2DKKcSeFpD/j6Boy538YXnR6VhcuUJOhH2x71\n" +
-            "nzPjfdTcqMz7djHum0qSZA0AyCBDABUqCrfNgCiJ00Ra7GmRj+YCK1NJEuewlb40\n" +
-            "JNrRuoEUXpabUzGB8QIDAQAB\n" +
-            "-----END PUBLIC KEY-----";
+    private static final String REFRESH_PUBLIC_KEY = """
+            -----BEGIN PUBLIC KEY-----
+            MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDLgd2OAkcGVtoE3ThUREbio0Eg
+            Uc/prcajMKXvkCKFCWhJYJcLkcM2DKKcSeFpD/j6Boy538YXnR6VhcuUJOhH2x71
+            nzPjfdTcqMz7djHum0qSZA0AyCBDABUqCrfNgCiJ00Ra7GmRj+YCK1NJEuewlb40
+            JNrRuoEUXpabUzGB8QIDAQAB
+            -----END PUBLIC KEY-----""";
     public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:141.0) Gecko/20100101 Firefox/141.0";
     private static CookieStore COOKIE_STORE = new BasicCookieStore();
     private static SaveSettings SAVE_SETTINGS;
@@ -209,10 +210,6 @@ public class Settings {
 
     public static MusicServiceSettings getMusicServiceSettings() {
         return SAVE_SETTINGS.getMusicServiceSettings();
-    }
-
-    public static void resetMusicServiceSettings() {
-        SAVE_SETTINGS.resetMusicServiceSettings();
     }
 
     public static void setRefreshToken(String refreshToken) {

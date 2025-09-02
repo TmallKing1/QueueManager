@@ -524,8 +524,7 @@ public class MusicPlayerScene extends Scene {
 
         public void updateHead(int index) {
             if (index == 0) {
-                FontIcon head1 = new FontIcon("fas-play:20");
-                head = head1;
+                head = new FontIcon("fas-play:20");
             } else {
                 Text head1 = new Text(String.valueOf(index));
                 head = head1;
@@ -559,10 +558,6 @@ public class MusicPlayerScene extends Scene {
                 }
             }
             control.setBackground(Background.fill(background));
-        }
-
-        public void resetAnimation() {
-            this.body.resetAnimation();
         }
 
         public void setControllable(boolean controllable) {

@@ -1,11 +1,9 @@
 package top.pigest.queuemanagerdemo.control;
 
-import javafx.animation.*;
 import javafx.scene.text.Text;
 import top.pigest.queuemanagerdemo.Settings;
 
 public class ScrollableText extends ScrollablePane<Text> {
-    private SequentialTransition sequentialTransition;
 
     public ScrollableText(String text, double width) {
         super(new Text(text), width);

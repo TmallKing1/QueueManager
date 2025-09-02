@@ -574,10 +574,6 @@ public class MusicHandler {
         musicPlayerStage.show();
     }
 
-    public MediaPlayer getMedia() {
-        return media;
-    }
-
     public MusicPlayerScene getPlayer() {
         return player;
     }

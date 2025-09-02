@@ -34,7 +34,7 @@ public class Music163Encryptor {
 
         cs.addProperty("csrf_token", csrfToken);
         String cipherTextFirst = encryptBytes(cs.toString(), KEY);
-        String random16 = generateRandomString(16);
+        String random16 = generateRandomString();
         String params = encryptBytes(cipherTextFirst, random16);
         String encSecKey = encryptedString(random16);
 
@@ -100,11 +100,11 @@ public class Music163Encryptor {
         return sb.toString();
     }
 
-    private static String generateRandomString(int length) {
+    private static String generateRandomString() {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         SecureRandom random = new SecureRandom();
-        StringBuilder sb = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
+        StringBuilder sb = new StringBuilder(16);
+        for (int i = 0; i < 16; i++) {
             sb.append(chars.charAt(random.nextInt(chars.length())));
         }
         return sb.toString();

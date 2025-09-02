@@ -221,9 +221,7 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
             }
         } catch (IOException e) {
             Platform.runLater(() -> {
-                JFXDialog dialog = new JFXDialog(this.loginMain.getRootStackPane(), Utils.make(Utils.createLabel("获取国家与地区列表失败\n" + e.getMessage(), "RED"), label -> {
-                    JFXDialog.setMargin(label, new Insets(30, 30, 30, 30));
-                }), JFXDialog.DialogTransition.CENTER);
+                JFXDialog dialog = new JFXDialog(this.loginMain.getRootStackPane(), Utils.make(Utils.createLabel("获取国家与地区列表失败\n" + e.getMessage(), "RED"), label -> JFXDialog.setMargin(label, new Insets(30, 30, 30, 30))), JFXDialog.DialogTransition.CENTER);
                 dialog.show();
             });
         }

@@ -17,20 +17,20 @@ public class LoginContainer extends BorderPane {
         button.setDefaultButton(true);
         button.setGraphic(new WhiteFontIcon("fas-sign-in-alt"));
     });
-    private final QMButton exitButton = Utils.make(new QMButton("退出", "#bb5555"), button -> {
-        button.setPrefSize(200, 40);
-        button.setOnAction(actionEvent -> QueueManager.INSTANCE.close());
-        BorderPane.setAlignment(button, Pos.CENTER);
-        BorderPane.setMargin(button, new Insets(0, 0, 30, 0));
-    });
-    private final VBox vBox = new VBox(10);
 
     public LoginContainer() {
         super();
+        VBox vBox = new VBox(10);
         vBox.setAlignment(Pos.CENTER);
         Label label = Utils.createLabel("登录你的哔哩哔哩账号以开始使用");
         vBox.getChildren().addAll(label, loginButton);
         this.setCenter(vBox);
+        QMButton exitButton = Utils.make(new QMButton("退出", "#bb5555"), button -> {
+            button.setPrefSize(200, 40);
+            button.setOnAction(actionEvent -> QueueManager.INSTANCE.close());
+            BorderPane.setAlignment(button, Pos.CENTER);
+            BorderPane.setMargin(button, new Insets(0, 0, 30, 0));
+        });
         this.setBottom(exitButton);
     }
 

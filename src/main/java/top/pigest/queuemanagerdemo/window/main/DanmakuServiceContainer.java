@@ -227,8 +227,8 @@ public class DanmakuServiceContainer extends MultiMenuProvider<Pane> implements 
 
     private static JFXComboBox<DanmakuServiceSettings.NarratorType> createModeSelector() {
         return Utils.make(new JFXComboBox<>(), comboBox -> {
-            comboBox.getStylesheets().add(QueueManager.class.getResource("css/combobox.css").toExternalForm());
-            comboBox.getStylesheets().add(QueueManager.class.getResource("css/scrollbar.css").toExternalForm());
+            comboBox.getStylesheets().add(Objects.requireNonNull(QueueManager.class.getResource("css/combobox.css")).toExternalForm());
+            comboBox.getStylesheets().add(Objects.requireNonNull(QueueManager.class.getResource("css/scrollbar.css")).toExternalForm());
             comboBox.setPrefWidth(500);
             comboBox.setValue(Settings.getDanmakuServiceSettings().narratorType);
             comboBox.setCellFactory(new Callback<>() {
@@ -257,8 +257,8 @@ public class DanmakuServiceContainer extends MultiMenuProvider<Pane> implements 
 
     private static JFXComboBox<NarratorService.Voice> createVoiceSelector() {
         return Utils.make(new JFXComboBox<>(), comboBox -> {
-            comboBox.getStylesheets().add(QueueManager.class.getResource("css/combobox.css").toExternalForm());
-            comboBox.getStylesheets().add(QueueManager.class.getResource("css/scrollbar.css").toExternalForm());
+            comboBox.getStylesheets().add(Objects.requireNonNull(QueueManager.class.getResource("css/combobox.css")).toExternalForm());
+            comboBox.getStylesheets().add(Objects.requireNonNull(QueueManager.class.getResource("css/scrollbar.css")).toExternalForm());
             CompletableFuture<List<NarratorService.Voice>> future = CompletableFuture.supplyAsync(NarratorService::getAvailableVoices);
             future.thenAccept(voices -> {
                 CompletableFuture<List<NarratorService.Voice>> future1 = CompletableFuture.supplyAsync(NarratorService::getRegistrableVoices);

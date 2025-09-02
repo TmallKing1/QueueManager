@@ -543,12 +543,8 @@ public class MusicSystemContainer extends MultiMenuProvider<Pane> implements Nam
                         hBox.getChildren().add(checkBox);
                     }
                 }))
-                .addControl("点歌冷却/秒（0为无冷却）", Utils.make(new IntegerModifier(getMusicServiceSettings().requestCooldown, 10, 0, Integer.MAX_VALUE), control -> {
-                    control.setOnValueSet(event -> getMusicServiceSettings().setRequestCooldown(control.getValue()));
-                }))
-                .addControl("点歌队列上限/首（0为不设上限）", Utils.make(new IntegerModifier(getMusicServiceSettings().maxRequestCount, 1, 0, Integer.MAX_VALUE), control -> {
-                    control.setOnValueSet(event -> getMusicServiceSettings().setMaxRequestCount(control.getValue()));
-                }))
+                .addControl("点歌冷却/秒（0为无冷却）", Utils.make(new IntegerModifier(getMusicServiceSettings().requestCooldown, 10, 0, Integer.MAX_VALUE), control -> control.setOnValueSet(event -> getMusicServiceSettings().setRequestCooldown(control.getValue()))))
+                .addControl("点歌队列上限/首（0为不设上限）", Utils.make(new IntegerModifier(getMusicServiceSettings().maxRequestCount, 1, 0, Integer.MAX_VALUE), control -> control.setOnValueSet(event -> getMusicServiceSettings().setMaxRequestCount(control.getValue()))))
                 .addControl("允许无空格分隔点歌", Utils.make(new JFXToggleButton(), button -> {
                     button.setSize(8);
                     button.setSelected(getMusicServiceSettings().allowNoSpace);

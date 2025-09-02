@@ -65,7 +65,7 @@ public class NarratorService {
             try {
                 writer.write("$speak.SpeakAsyncCancelAll()\n");
                 writer.flush();
-            } catch (IOException e) {
+            } catch (IOException ignored) {
             }
             process.destroy();
         });
