@@ -22,7 +22,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
+import top.pigest.queuemanagerdemo.control.QMButton;
 
 import java.io.IOException;
 
@@ -56,7 +56,7 @@ public class Captcha extends Scene {
         root.setTop(borderPane);
 
         new Thread(() -> {
-            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
                 if (safeCheck) {
                     HttpPost httpPost = new HttpPost("https://passport.bilibili.com/x/safecenter/captcha/pre");
                     httpPost.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
@@ -137,8 +137,6 @@ public class Captcha extends Scene {
     }
 
     public void stop() {
-        if (timeline != null) {
-            timeline.stop();
-        }
+        Utils.onPresent(timeline, Timeline::stop);
     }
 }

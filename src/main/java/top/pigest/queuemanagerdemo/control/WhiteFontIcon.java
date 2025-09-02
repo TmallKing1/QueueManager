@@ -1,4 +1,4 @@
-package top.pigest.queuemanagerdemo.widget;
+package top.pigest.queuemanagerdemo.control;
 
 import javafx.scene.paint.Paint;
 import org.kordamp.ikonli.javafx.FontIcon;

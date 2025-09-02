@@ -31,9 +31,9 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
-import top.pigest.queuemanagerdemo.widget.TitledDialog;
-import top.pigest.queuemanagerdemo.widget.WhiteFontIcon;
+import top.pigest.queuemanagerdemo.control.QMButton;
+import top.pigest.queuemanagerdemo.control.TitledDialog;
+import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
 
 import java.io.IOException;
 import java.net.URI;
@@ -138,7 +138,7 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
         this.loginButton.setGraphic(new WhiteFontIcon("fas-bullseye"));
 
         new Thread(() -> {
-            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
                 if (this.fromPassword) {
                     HttpPost httpPost = new HttpPost("https://passport.bilibili.com/x/safecenter/login/tel/verify");
                     httpPost.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
@@ -283,7 +283,7 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
     @Override
     public void captchaSuccess(String token, String gt, String challenge, String validate, String seccode) {
         captcha.close();
-        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
             if (this.fromPassword) {
                 HttpPost httpPost = new HttpPost("https://passport.bilibili.com/x/safecenter/common/sms/send");
                 httpPost.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
@@ -383,7 +383,7 @@ public class SMSLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
         smsLogin.requestId = requestId;
         smsLogin.accountField.setText("获取中……");
         new Thread(() -> {
-            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+            try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
                 URI uri = new URIBuilder("https://passport.bilibili.com/x/safecenter/user/info")
                         .addParameter("tmp_code", tmpCode)
                         .build();

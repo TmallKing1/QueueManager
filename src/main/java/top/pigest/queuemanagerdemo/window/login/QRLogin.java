@@ -28,8 +28,8 @@ import org.apache.http.util.EntityUtils;
 import org.kordamp.ikonli.javafx.FontIcon;
 import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
-import top.pigest.queuemanagerdemo.widget.WhiteFontIcon;
+import top.pigest.queuemanagerdemo.control.QMButton;
+import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
 
 import java.io.IOException;
 import java.net.URI;
@@ -122,7 +122,7 @@ class QRLogin extends BorderPane implements LoginMethodLocker {
     private Timeline createTimeline() {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.millis(500), event -> {
-                    try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+                    try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
                         URI uri = new URIBuilder("https://passport.bilibili.com/x/passport-login/web/qrcode/poll")
                                 .addParameter("qrcode_key", qrcodeKey)
                                 .build();
@@ -184,8 +184,7 @@ class QRLogin extends BorderPane implements LoginMethodLocker {
                     if (!this.lockLoginMethod) {
                         this.qrCodeHintBox.getChildren().clear();
                         this.qrCodeHint.setText("扫码成功\n请在手机上点击【确认】");
-                        FontIcon icon = new FontIcon("far-check-circle");
-                        icon.setIconSize(50);
+                        FontIcon icon = new FontIcon("far-check-circle:50");
                         icon.setIconColor(Paint.valueOf("#379437"));
                         VBox.setMargin(icon, new Insets(0, 0, 30, 0));
                         this.qrCodeHintBox.getChildren().add(icon);

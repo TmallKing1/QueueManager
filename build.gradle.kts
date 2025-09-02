@@ -29,7 +29,12 @@ tasks.withType<JavaCompile> {
 application {
     mainModule.set("top.pigest.queuemanagerdemo")
     mainClass.set("top.pigest.queuemanagerdemo.QueueManager")
-    applicationDefaultJvmArgs = listOf("--add-opens=java.base/java.lang.reflect=com.jfoenix")
+    applicationDefaultJvmArgs = listOf("--add-opens=java.base/java.lang.reflect=com.jfoenix",
+        "--add-opens=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix",
+        "--add-opens=javafx.controls/com.sun.javafx.scene.control=com.jfoenix",
+        "--add-opens=javafx.base/com.sun.javafx.binding=com.jfoenix",
+        "--add-opens=javafx.base/com.sun.javafx.event=com.jfoenix",
+        "--add-opens=javafx.graphics/com.sun.javafx.stage=com.jfoenix")
 }
 
 javafx {

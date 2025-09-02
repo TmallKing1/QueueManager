@@ -1,11 +1,11 @@
-package top.pigest.queuemanagerdemo.system;
+package top.pigest.queuemanagerdemo.liveroom;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.protobuf.InvalidProtocolBufferException;
 import top.pigest.queuemanagerdemo.QueueManager;
 import top.pigest.queuemanagerdemo.Settings;
-import top.pigest.queuemanagerdemo.system.settings.DanmakuServiceSettings;
+import top.pigest.queuemanagerdemo.settings.DanmakuServiceSettings;
 
 import java.io.*;
 import java.util.*;

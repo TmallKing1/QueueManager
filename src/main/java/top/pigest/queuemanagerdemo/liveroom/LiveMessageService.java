@@ -1,9 +1,10 @@
-package top.pigest.queuemanagerdemo.system;
+package top.pigest.queuemanagerdemo.liveroom;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import javafx.application.Platform;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Pair;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -15,8 +16,10 @@ import org.apache.http.util.EntityUtils;
 import org.brotli.dec.BrotliInputStream;
 import top.pigest.queuemanagerdemo.QueueManager;
 import top.pigest.queuemanagerdemo.Settings;
+import top.pigest.queuemanagerdemo.music.MusicHandler;
+import top.pigest.queuemanagerdemo.system.WbiSign;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
+import top.pigest.queuemanagerdemo.control.QMButton;
 import top.pigest.queuemanagerdemo.window.main.DanmakuServiceContainer;
 
 import java.io.*;
@@ -49,23 +52,24 @@ public class LiveMessageService implements WebSocket.Listener {
     }
 
     public CompletionStage<?> onBinary(WebSocket socket, ByteBuffer buffer, boolean last) {
-        //System.out.println("OnBinary" + new String(buffer.array()));
-        Pair<Integer, Optional<JsonObject>> pair;
+        List<Pair<Integer, Optional<JsonObject>>> list = new ArrayList<>();
         try {
-            pair = receivePacket(buffer);
+            receivePacket(buffer, list);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        if (pair.getKey() != -1) {
-            if (pair.getKey() == 8 && pair.getValue().isPresent()) {
-                int s = pair.getValue().get().get("code").getAsInt();
-                if (s != 0) {
-                    Platform.runLater(() -> Utils.showDialogMessage("认证失败", true, QueueManager.INSTANCE.getMainScene().getRootDrawer()));
+        for (Pair<Integer, Optional<JsonObject>> pair : list) {
+            if (pair.getKey() != -1) {
+                if (pair.getKey() == 8 && pair.getValue().isPresent()) {
+                    int s = pair.getValue().get().get("code").getAsInt();
+                    if (s != 0) {
+                        Platform.runLater(() -> Utils.showDialogMessage("认证失败", true, QueueManager.INSTANCE.getMainScene().getRootDrawer()));
+                    }
                 }
-            }
-            if (pair.getKey() == 5 && pair.getValue().isPresent()) {
-                JsonObject payload = pair.getValue().get();
-                this.messageHandlers.forEach(mh -> mh.handle(payload));
+                if (pair.getKey() == 5 && pair.getValue().isPresent()) {
+                    JsonObject payload = pair.getValue().get();
+                    this.messageHandlers.forEach(mh -> mh.handle(payload));
+                }
             }
         }
         return WebSocket.Listener.super.onBinary(socket, buffer, last);
@@ -83,18 +87,19 @@ public class LiveMessageService implements WebSocket.Listener {
     public void onOpen(WebSocket webSocket) {
         this.webSocket = webSocket;
         sendVerify(webSocket);
-        this.addMessageHandler("narrator_single", "DANMU_MSG", NarratorService::handleSingleDanmaku);
-        this.addMessageHandler("narrator_enter", "INTERACT_WORD_V2", NarratorService::handleInteract);
-        this.addMessageHandler("narrator_gift", "SEND_GIFT", NarratorService::handleGift);
-        this.addMessageHandler("narrator_guard", "GUARD_BUY", NarratorService::handleGuard);
-        this.addMessageHandler("narrator_sc", "SUPER_CHAT_MESSAGE", NarratorService::handleSuperChat);
         Platform.runLater(() -> {
+            this.addMessageHandler("narrator_single", "DANMU_MSG", NarratorService::handleSingleDanmaku);
+            this.addMessageHandler("narrator_enter", "INTERACT_WORD_V2", NarratorService::handleInteract);
+            this.addMessageHandler("narrator_gift", "SEND_GIFT", NarratorService::handleGift);
+            this.addMessageHandler("narrator_guard", "GUARD_BUY", NarratorService::handleGuard);
+            this.addMessageHandler("narrator_sc", "SUPER_CHAT_MESSAGE", NarratorService::handleSuperChat);
+            this.addMessageHandler("request_song", "DANMU_MSG", MusicHandler.INSTANCE::handleSingleDanmaku);
             Utils.showDialogMessage("连接直播弹幕服务成功", false, QueueManager.INSTANCE.getMainScene().getRootDrawer());
             if (QueueManager.INSTANCE.getMainScene().getBorderPane().getCenter() instanceof DanmakuServiceContainer container && container.getInnerContainer().getId().equals("c0")) {
-                container.connectedButton(((QMButton) ((BorderPane) container.getInnerContainer().getChildren().getFirst()).getRight()));
+                container.connectedButton(((QMButton) (((BorderPane) ((VBox) container.getInnerContainer().getChildren().getFirst()).getChildren().getFirst())).getRight()));
             }
         });
-        WebSocket.Listener.super.onOpen(webSocket);
+        webSocket.request(10);
     }
 
     private void sendVerify(WebSocket webSocket) {
@@ -139,51 +144,57 @@ public class LiveMessageService implements WebSocket.Listener {
         webSocket.sendBinary(ByteBuffer.wrap(buffer.array()), true);
     }
 
-    public Pair<Integer, Optional<JsonObject>> receivePacket(ByteBuffer buffer) throws IOException {
-        int size = buffer.getInt();
-        short headSize = buffer.getShort();
-        short protocolVersion = buffer.getShort();
-        int opcode = buffer.getInt();
-        buffer.getInt();
-        byte[] body = new byte[size - headSize];
-        buffer.get(body);
-        switch (protocolVersion) {
-            case 2 -> {
-                body = decompress(body);
-                return receivePacket(ByteBuffer.wrap(body));
+    public void receivePacket(ByteBuffer buffer, List<Pair<Integer, Optional<JsonObject>>> list) throws IOException {
+        while (buffer.remaining() > 0) {
+            int size = buffer.getInt();
+            short headSize = buffer.getShort();
+            short protocolVersion = buffer.getShort();
+            int opcode = buffer.getInt();
+            buffer.getInt();
+            byte[] body = new byte[size - headSize];
+            buffer.get(body);
+            switch (protocolVersion) {
+                case 2 -> {
+                    body = decompress(body);
+                    receivePacket(ByteBuffer.wrap(body), list);
+                    return;
+                }
+                case 3 -> {
+                    body = decompressBrotli(body);
+                    receivePacket(ByteBuffer.wrap(body), list);
+                    return;
+                }
             }
-            case 3 -> {
-                body = decompressBrotli(body);
-                return receivePacket(ByteBuffer.wrap(body));
-            }
-        }
-        String x = new String(body);
-        if (opcode == 3) {
-            return new Pair<>(opcode, Optional.empty());
-        } else if (opcode == 8) {
-            JsonObject jsonObject = JsonParser.parseString(x).getAsJsonObject();
-            if (jsonObject.has("code") && jsonObject.get("code").getAsInt() == 0) {
-                Timer timer = new Timer();
-                timer.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        try {
-                            if (webSocket.isOutputClosed()) {
-                                this.cancel();
+            String x = new String(body);
+            if (opcode == 3) {
+                list.add(new Pair<>(opcode, Optional.empty()));
+                return;
+            } else if (opcode == 8) {
+                JsonObject jsonObject = JsonParser.parseString(x).getAsJsonObject();
+                if (jsonObject.has("code") && jsonObject.get("code").getAsInt() == 0) {
+                    Timer timer = new Timer();
+                    timer.scheduleAtFixedRate(new TimerTask() {
+                        @Override
+                        public void run() {
+                            try {
+                                if (webSocket.isOutputClosed()) {
+                                    this.cancel();
+                                }
+                                sendHeartbeat(webSocket);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
                             }
-                            sendHeartbeat(webSocket);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
                         }
-                    }
-                }, 0, 30000);
-                return new Pair<>(opcode, Optional.empty());
-            } else {
-                return new Pair<>(opcode, Optional.of(jsonObject));
+                    }, 0, 30000);
+                    list.add(new Pair<>(opcode, Optional.empty()));
+                    return;
+                } else {
+                    list.add(new Pair<>(opcode, Optional.of(jsonObject)));
+                    return;
+                }
             }
+            list.add(new Pair<>(opcode, Optional.of(JsonParser.parseString(x).getAsJsonObject())));
         }
-        System.out.println(x);
-        return new Pair<>(opcode, Optional.of(JsonParser.parseString(x).getAsJsonObject()));
     }
 
     public void addMessageHandler(String id, String cmdType, Consumer<JsonObject> consumer) {
@@ -191,12 +202,16 @@ public class LiveMessageService implements WebSocket.Listener {
     }
 
     public boolean isSessionAvailable() {
-        return webSocket != null && (webSocket.isInputClosed() ||  !webSocket.isOutputClosed());
+        return webSocket != null && (webSocket.isInputClosed() || !webSocket.isOutputClosed());
     }
 
     public void close() throws IOException {
         this.webSocket.sendClose(0, "closed");
         this.client.shutdownNow();
+    }
+
+    public long getRoomId() {
+        return roomId;
     }
 
     public static byte[] decompress(byte[] data) throws IOException {
@@ -223,7 +238,7 @@ public class LiveMessageService implements WebSocket.Listener {
     }
 
     public static void connect() {
-        try (CloseableHttpClient httpclient = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+        try (CloseableHttpClient httpclient = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
             URI uri = new URIBuilder("https://api.live.bilibili.com/live_user/v1/Master/info")
                     .addParameter("uid", String.valueOf(Settings.MID)).build();
             HttpGet httpget = new HttpGet(uri);
@@ -290,8 +305,8 @@ public class LiveMessageService implements WebSocket.Listener {
         map.put("id", roomId);
         map.put("type", 0);
         map.put("web_location", 444.8);
-        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
-            Utils.fillCookies(Settings.getBiliCookieStore());
+        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
+            Utils.fillCookies(Settings.getCookieStore());
             URI signedUri = WbiSign.getSignedUri(new URIBuilder("https://api.live.bilibili.com/xlive/web-room/v1/index/getDanmuInfo"), map);
             if (signedUri == null) {
                 throw new RuntimeException("Failed to get signedUri");

@@ -27,14 +27,16 @@ import org.apache.http.util.EntityUtils;
 import org.kordamp.ikonli.javafx.FontIcon;
 import top.pigest.queuemanagerdemo.QueueManager;
 import top.pigest.queuemanagerdemo.Settings;
-import top.pigest.queuemanagerdemo.system.LiveMessageService;
+import top.pigest.queuemanagerdemo.liveroom.LiveMessageService;
+import top.pigest.queuemanagerdemo.music.MusicHandler;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
-import top.pigest.queuemanagerdemo.widget.TitledDialog;
-import top.pigest.queuemanagerdemo.widget.WhiteFontIcon;
+import top.pigest.queuemanagerdemo.control.QMButton;
+import top.pigest.queuemanagerdemo.control.TitledDialog;
+import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 public class MainScene extends Scene {
@@ -77,11 +79,19 @@ public class MainScene extends Scene {
     private final List<QMButton> drawerButtons = new ArrayList<>();
 
     private boolean login = false;
+    private MainPageContainer mainPageContainer;
 
     public MainScene() {
         super(new Pane(), 800, 600, false, SceneAntialiasing.BALANCED);
         this.setRoot(drawer);
         refreshLoginState();
+        autoMethods();
+    }
+
+    public void autoMethods() {
+        if (Settings.getMusicServiceSettings().autoPlay && Settings.hasCookie("MUSIC_U")) {
+            CompletableFuture.runAsync(MusicHandler.INSTANCE::playNext);
+        }
     }
 
     public boolean isLogin() {
@@ -89,9 +99,9 @@ public class MainScene extends Scene {
     }
 
     public void logout() {
-        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
             HttpClientContext context = HttpClientContext.create();
-            context.setCookieStore(Settings.getBiliCookieStore());
+            context.setCookieStore(Settings.getCookieStore());
             HttpPost httpPost = new HttpPost("https://passport.bilibili.com/login/exit/v2");
             httpPost.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
             httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -117,9 +127,9 @@ public class MainScene extends Scene {
 
     public void refreshLoginState() {
         Settings.loadCookie();
-        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
             HttpClientContext context = HttpClientContext.create();
-            context.setCookieStore(Settings.getBiliCookieStore());
+            context.setCookieStore(Settings.getCookieStore());
             HttpGet httpGet = new HttpGet("https://api.bilibili.com/x/space/myinfo");
             httpGet.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
             try (CloseableHttpResponse response = client.execute(httpGet, context)) {
@@ -173,8 +183,8 @@ public class MainScene extends Scene {
     private void loggedIn(String name) {
         Platform.runLater(() -> {
             this.login = true;
-            MainPageContainer mainContainer = new MainPageContainer(this);
-            this.setMainContainer(mainContainer, "主页");
+            mainPageContainer = new MainPageContainer(this);
+            this.setMainContainer(mainPageContainer, "主页");
             accountButton.setText(name);
             accountButton.setGraphic(new FontIcon("far-user-circle"));
             VBox vbox = new VBox();
@@ -224,19 +234,25 @@ public class MainScene extends Scene {
         this.refreshMenuButtons();
     }
 
+    public void setMainContainer(Supplier<Pane> supplier, QMButton source, Pane parent) {
+        if (source != null && !source.getId().isEmpty() && source.getId().equals(this.getMainContainer().getId())) {
+            return;
+        }
+        this.setMainContainer(((MultiMenuProvider<?>) supplier.get()).withParentContainer(parent), source != null ? source.getId() : "");
+    }
+
     public void setMainContainer(Supplier<Pane> supplier, QMButton source) {
         if (source != null && !source.getId().isEmpty() && source.getId().equals(this.getMainContainer().getId())) {
             return;
         }
-        this.setMainContainer(((MultiMenuProvider<?>) supplier.get()).withParentContainer((Pane) this.getMainContainer()), source != null ? source.getId() : "");
+        this.setMainContainer(supplier, source, (Pane) this.getMainContainer());
     }
 
     public QMButton createMainFunctionButton(String backgroundColor, String ripplerColor, String text, String iconCode, Supplier<Pane> supplier) {
         QMButton button = new QMButton(null, backgroundColor, false);
         button.setId(text);
         button.setPrefSize(200, 200);
-        FontIcon fontIcon = new WhiteFontIcon(iconCode);
-        fontIcon.setIconSize(100);
+        FontIcon fontIcon = new WhiteFontIcon(iconCode + ":100");
         Text text1 = new Text(text);
         text1.setFont(Settings.DEFAULT_FONT);
         text1.setFill(Paint.valueOf("WHITE"));
@@ -252,7 +268,7 @@ public class MainScene extends Scene {
         button1.setId(text);
         button1.setGraphic(new FontIcon(iconCode));
         button1.setOnAction(actionEvent -> {
-            this.setMainContainer(supplier, button1);
+            this.setMainContainer(supplier, button1, mainPageContainer);
             this.getRootDrawer().close();
         });
         this.drawerButtons.add(button1);

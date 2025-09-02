@@ -62,12 +62,12 @@ public class BiliTicket {
                     biliTicket.setDomain("bilibili.com");
                     biliTicket.setExpiryDate(new Date(date));
                     biliTicket.setPath("/");
-                    Settings.getBiliCookieStore().addCookie(biliTicket);
+                    Settings.getCookieStore().addCookie(biliTicket);
                     BasicClientCookie biliTicketExpires = new BasicClientCookie("bili_ticket_expires", ticket);
                     biliTicketExpires.setDomain("bilibili.com");
                     biliTicketExpires.setExpiryDate(new Date(date));
                     biliTicket.setPath("/");
-                    Settings.getBiliCookieStore().addCookie(biliTicketExpires);
+                    Settings.getCookieStore().addCookie(biliTicketExpires);
                     Settings.saveCookie(false);
                 }
                 JsonObject nav = object.getAsJsonObject("data").getAsJsonObject("nav");

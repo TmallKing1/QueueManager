@@ -27,10 +27,14 @@ module top.pigest.queuemanagerdemo {
     opens top.pigest.queuemanagerdemo.system to com.google.gson;
     exports top.pigest.queuemanagerdemo;
     exports top.pigest.queuemanagerdemo.system;
-    exports top.pigest.queuemanagerdemo.system.settings;
-    exports top.pigest.queuemanagerdemo.widget;
+    exports top.pigest.queuemanagerdemo.settings;
+    exports top.pigest.queuemanagerdemo.util;
+    exports top.pigest.queuemanagerdemo.control;
     exports top.pigest.queuemanagerdemo.window.main;
-    opens top.pigest.queuemanagerdemo.system.settings to com.google.gson;
-    exports top.pigest.queuemanagerdemo.system.netease;
-    opens top.pigest.queuemanagerdemo.system.netease to com.google.gson;
+    exports top.pigest.queuemanagerdemo.window.music;
+    opens top.pigest.queuemanagerdemo.settings to com.google.gson;
+    exports top.pigest.queuemanagerdemo.music;
+    opens top.pigest.queuemanagerdemo.music to com.google.gson;
+    exports top.pigest.queuemanagerdemo.liveroom;
+    opens top.pigest.queuemanagerdemo.liveroom to com.google.gson;
 }

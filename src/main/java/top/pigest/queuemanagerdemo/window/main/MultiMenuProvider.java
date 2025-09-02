@@ -1,6 +1,5 @@
 package top.pigest.queuemanagerdemo.window.main;
 
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -10,7 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import top.pigest.queuemanagerdemo.QueueManager;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
+import top.pigest.queuemanagerdemo.control.QMButton;
 
 import java.util.*;
 import java.util.List;
@@ -79,7 +78,7 @@ public abstract class MultiMenuProvider<T extends Node> extends BorderPane imple
         if (prefHeight > 0) {
             borderPane.setPrefHeight(prefHeight);
         }
-        Label label = Utils.createLabel(title, prefWidth, Pos.CENTER_LEFT);
+        Label label = Utils.createLabel(title, -1, Pos.CENTER_LEFT);
         borderPane.setLeft(label);
         BorderPane.setAlignment(label, Pos.CENTER_LEFT);
         borderPane.setRight(innerContainer);

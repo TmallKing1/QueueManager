@@ -1,0 +1,4659 @@
+{
+  "result": {
+    "searchQcReminder": null,
+    "songs": [
+      {
+        "name": "Corruption",
+        "id": 1457289187,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 30763533,
+            "name": "大沼パセリ",
+            "tns": [],
+            "alias": [
+              "parsley onuma"
+            ],
+            "alia": [
+              "parsley onuma"
+            ]
+          },
+          {
+            "id": 159692,
+            "name": "初音ミク",
+            "tns": [
+              "初音未来"
+            ],
+            "alias": [
+              "Hatsune Miku"
+            ],
+            "alia": [
+              "Hatsune Miku"
+            ]
+          }
+        ],
+        "alia": [],
+        "pop": 80.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 45,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 91315491,
+          "name": "ave",
+          "picUrl": "http://p1.music.126.net/3lPIdHOqJsRRMqOnlj8CSA==/109951168571748334.jpg",
+          "tns": [],
+          "pic_str": "109951168571748334",
+          "pic": 109951168571748334
+        },
+        "dt": 189866,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 7597497,
+          "vd": -57727.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 4558515,
+          "vd": -55179.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3039025,
+          "vd": -53553.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1002390,
+          "fid": 0,
+          "size": 23790069,
+          "vd": -57765.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 12,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 270464,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 11,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 457010,
+        "mv": 0,
+        "publishTime": 0,
+        "privilege": {
+          "id": 1457289187,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 5,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 2049691284,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 813403,
+            "name": "3R2",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 55.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 45,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 166200081,
+          "name": "Stuff",
+          "picUrl": "http://p1.music.126.net/zsfyaGYs4REkxggv_oFoMA==/109951168632327434.jpg",
+          "tns": [],
+          "pic_str": "109951168632327434",
+          "pic": 109951168632327434
+        },
+        "dt": 146294,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 5854607,
+          "vd": -55973.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 3512782,
+          "vd": -53532.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 2341869,
+          "vd": -52094.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1106640,
+          "fid": 0,
+          "size": 20236947,
+          "vd": -55947.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 12,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 139392,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 11,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 743010,
+        "mv": 0,
+        "publishTime": 1633795200000,
+        "privilege": {
+          "id": 2049691284,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 261,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 4377414,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 102714,
+            "name": "Two Steps From Hell",
+            "tns": [
+              "地狱咫尺"
+            ],
+            "alias": []
+          },
+          {
+            "id": 45336,
+            "name": "Thomas Bergersen",
+            "tns": [
+              "托马斯·伯格森"
+            ],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 25.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 69,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 441803,
+          "name": "Illumina",
+          "picUrl": "http://p1.music.126.net/IbrfGk2nWCgOgH2z1g0vrw==/109951170191737951.jpg",
+          "tns": [],
+          "pic_str": "109951170191737951",
+          "pic": 109951170191737951
+        },
+        "dt": 181738,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 7272533,
+          "vd": -43713.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 4363537,
+          "vd": -41107.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 2909039,
+          "vd": -39440.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1491791,
+          "fid": 0,
+          "size": 33889552,
+          "vd": -43717.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 4,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 17180139520,
+        "originCoverType": 2,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 35,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416618,
+        "mv": 0,
+        "publishTime": 1596038400000,
+        "privilege": {
+          "id": 4377414,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 1999196,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 44108,
+            "name": "Scott Lloyd Shelly",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 40.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 47,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 201547,
+          "name": "Terraria Soundtrack",
+          "picUrl": "http://p1.music.126.net/vKHOfuNXHqGVj0h-xc_XGA==/856519558090970.jpg",
+          "tns": [],
+          "pic": 856519558090970
+        },
+        "dt": 157000,
+        "h": {
+          "br": 320002,
+          "fid": 0,
+          "size": 6283015,
+          "vd": 20591.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192002,
+          "fid": 0,
+          "size": 3769826,
+          "vd": 23204.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128002,
+          "fid": 0,
+          "size": 2513232,
+          "vd": 24924.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 787093,
+          "fid": 0,
+          "size": 15446714,
+          "vd": 16062.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 8,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 2,
+        "s_id": 0,
+        "mark": 131072,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 13,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 1320076800007,
+        "privilege": {
+          "id": 1999196,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 128,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 1325899011,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 12053031,
+            "name": "Rebelion",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": null,
+        "fee": 8,
+        "v": 52,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 74266460,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/aoqbEI5ZBzPMdtEquhVJ2g==/109951164379405938.jpg",
+          "tns": [],
+          "pic_str": "109951164379405938",
+          "pic": 109951164379405938
+        },
+        "dt": 237375,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 9498166,
+          "vd": -84748.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 5698917,
+          "vd": -82291.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3799293,
+          "vd": -80978.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1253000,
+          "fid": 0,
+          "size": 30649091,
+          "vd": -84724.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 17180139520,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 18,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416075,
+        "mv": 0,
+        "publishTime": 1543161600007,
+        "privilege": {
+          "id": 1325899011,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 41631263,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 102714,
+            "name": "Two Steps From Hell",
+            "tns": [
+              "地狱咫尺"
+            ],
+            "alias": []
+          },
+          {
+            "id": 45336,
+            "name": "Thomas Bergersen",
+            "tns": [
+              "托马斯·伯格森"
+            ],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 25.0,
+        "st": 0,
+        "rt": null,
+        "fee": 8,
+        "v": 61,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 3443428,
+          "name": "All Drones Go To Hell",
+          "picUrl": "http://p1.music.126.net/ILwRVXzNEkF-WRO1m1wumg==/109951170330543378.jpg",
+          "tns": [],
+          "pic_str": "109951170330543378",
+          "pic": 109951170330543378
+        },
+        "dt": 65972,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 2641546,
+          "vd": -32209.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 1584945,
+          "vd": -29564.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 1056644,
+          "vd": -27777.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1270431,
+          "fid": 0,
+          "size": 10476664,
+          "vd": -32211.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "02",
+        "no": 5,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 139392,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 27,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 743010,
+        "mv": 0,
+        "publishTime": 1278864000000,
+        "privilege": {
+          "id": 41631263,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 261,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Devil May Cry",
+        "id": 27965143,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 185858,
+            "name": "The Weeknd",
+            "tns": [
+              "威肯"
+            ],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 85.0,
+        "st": 0,
+        "rt": "",
+        "fee": 1,
+        "v": 190,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 2702021,
+          "name": "The Hunger Games: Catching Fire (Original Motion Picture Soundtrack)",
+          "picUrl": "http://p1.music.126.net/DIlM3b-a4cdMIxlM0afbwA==/109951166115753150.jpg",
+          "tns": [],
+          "pic_str": "109951166115753150",
+          "pic": 109951166115753150
+        },
+        "dt": 323825,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 12955733,
+          "vd": -43720.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 7773457,
+          "vd": -41126.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 5182319,
+          "vd": -39531.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1596929,
+          "fid": 0,
+          "size": 64640827,
+          "vd": -43702.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 6,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 17180139520,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 156,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 7003,
+        "mv": 0,
+        "publishTime": 1356969600000,
+        "privilege": {
+          "id": 27965143,
+          "fee": 1,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 0,
+          "toast": false,
+          "flag": 260,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "none",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption (Chiller)",
+        "id": 1824231445,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 47002284,
+            "name": "Tyntepulk",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 46,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 123761306,
+          "name": "Corruption (Chiller)",
+          "picUrl": "http://p1.music.126.net/ccQ_hnPedeKSO0CIWwVg3Q==/109951165772692701.jpg",
+          "tns": [],
+          "pic_str": "109951165772692701",
+          "pic": 109951165772692701
+        },
+        "dt": 128391,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 5137807,
+          "vd": -39594.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 3082702,
+          "vd": -37038.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 2055149,
+          "vd": -35485.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1603007,
+          "fid": 0,
+          "size": 25726629,
+          "vd": -39585.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 17180000384,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 12,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416692,
+        "mv": 0,
+        "publishTime": 1614614400000,
+        "privilege": {
+          "id": 1824231445,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 257,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 1932959537,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 12264035,
+            "name": "长泽陵川",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 43,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 142627620,
+          "name": "Corruption/大沼パセリ",
+          "picUrl": "http://p1.music.126.net/NTG5s-abZv5vuLvV93qADQ==/109951167213125998.jpg",
+          "tns": [],
+          "pic_str": "109951167213125998",
+          "pic": 109951167213125998
+        },
+        "dt": 192100,
+        "h": {
+          "br": 320002,
+          "fid": 0,
+          "size": 7686313,
+          "vd": -63907.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192002,
+          "fid": 0,
+          "size": 4611805,
+          "vd": -61418.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128002,
+          "fid": 0,
+          "size": 3074551,
+          "vd": -59778.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1108995,
+          "fid": 0,
+          "size": 26629829,
+          "vd": -63926.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 262272,
+        "originCoverType": 2,
+        "originSongSimpleData": {
+          "songId": 1457289187,
+          "name": "Corruption",
+          "artists": [
+            {
+              "id": 30763533,
+              "name": "大沼パセリ"
+            },
+            {
+              "id": 159692,
+              "name": "初音ミク"
+            }
+          ],
+          "albumMeta": {
+            "id": 91315491,
+            "name": "ave"
+          }
+        },
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 9,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 0,
+        "privilege": {
+          "id": 1932959537,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 129,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "CORRUPTION",
+        "id": 2136857196,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 49614992,
+            "name": "Leftoz",
+            "tns": [],
+            "alias": []
+          },
+          {
+            "id": 55189674,
+            "name": "Dubstified",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 37,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 189292870,
+          "name": "CORRUPTION",
+          "picUrl": "http://p1.music.126.net/nNjw3huZc7naIRwCDNKoKw==/109951169422404357.jpg",
+          "tns": [],
+          "pic_str": "109951169422404357",
+          "pic": 109951169422404357
+        },
+        "dt": 128747,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 5152365,
+          "vd": -144883.0,
+          "sr": 48000
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 3091437,
+          "vd": -142127.0,
+          "sr": 48000
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 2060973,
+          "vd": -139684.0,
+          "sr": 48000
+        },
+        "sq": {
+          "br": 1216642,
+          "fid": 0,
+          "size": 19579933,
+          "vd": -145144.0,
+          "sr": 48000
+        },
+        "hr": {
+          "br": 1959968,
+          "fid": 0,
+          "size": 31542592,
+          "vd": -145132.0,
+          "sr": 48000
+        },
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 538189824,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 3,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416692,
+        "mv": 0,
+        "publishTime": 1711641600000,
+        "privilege": {
+          "id": 2136857196,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "hires",
+          "playMaxBrLevel": "hires",
+          "downloadMaxBrLevel": "hires",
+          "plLevel": "hires",
+          "dlLevel": "hires",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 1999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption (Chapter 3)",
+        "id": 1886011206,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 35723,
+            "name": "John 00 Fleming",
+            "tns": [],
+            "alias": []
+          },
+          {
+            "id": 13932571,
+            "name": "Fuenka",
+            "tns": [],
+            "alias": []
+          },
+          {
+            "id": 50101152,
+            "name": "John 00 Fleming and Fuenka",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 47,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 134570699,
+          "name": "Corruption: Chapter 3",
+          "picUrl": "http://p1.music.126.net/LV40ng35dBZGeMU-xyXdEQ==/109951170463197240.jpg",
+          "tns": [],
+          "pic_str": "109951170463197240",
+          "pic": 109951170463197240
+        },
+        "dt": 1020000,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 40802264,
+          "vd": -65516.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 24481376,
+          "vd": -62966.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 16320932,
+          "vd": -61504.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 879946,
+          "fid": 0,
+          "size": 112211521,
+          "vd": -65510.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 17180139648,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 13,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 743010,
+        "mv": 0,
+        "publishTime": 1634486400000,
+        "privilege": {
+          "id": 1886011206,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 261,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 2046864119,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 31459188,
+            "name": "Ben Snow",
+            "tns": [],
+            "alias": []
+          },
+          {
+            "id": 34569369,
+            "name": "Deep Notion",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": "",
+        "fee": 1,
+        "v": 38,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 165494850,
+          "name": "Corruption / Fire",
+          "picUrl": "http://p1.music.126.net/A2agDaSimFBc2KzwYh_4ug==/109951168607578821.jpg",
+          "tns": [],
+          "pic_str": "109951168607578821",
+          "pic": 109951168607578821
+        },
+        "dt": 225258,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 9013333,
+          "vd": -102637.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 5408017,
+          "vd": -100087.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3605359,
+          "vd": -98689.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1152781,
+          "fid": 0,
+          "size": 32459241,
+          "vd": -102938.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 270336,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 4,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416336,
+        "mv": 0,
+        "publishTime": 1685030400000,
+        "privilege": {
+          "id": 2046864119,
+          "fee": 1,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 0,
+          "toast": false,
+          "flag": 260,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "none",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption（Cover 初音ミク）",
+        "id": 863474200,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 12258067,
+            "name": "猫SiPPo玲子",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": null,
+        "fee": 0,
+        "v": 45,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 71683016,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/7D2EO7UAana389EVvwG0tA==/109951163381594849.jpg",
+          "tns": [],
+          "pic_str": "109951163381594849",
+          "pic": 109951163381594849
+        },
+        "dt": 192120,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 7686313,
+          "vd": -61080.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 4611805,
+          "vd": -58660.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3074551,
+          "vd": -57118.0,
+          "sr": 44100
+        },
+        "sq": null,
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 262144,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 11,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 1530198000000,
+        "privilege": {
+          "id": 863474200,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 320000,
+          "dl": 320000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 320000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 128,
+          "preSell": false,
+          "playMaxbr": 320000,
+          "downloadMaxbr": 320000,
+          "maxBrLevel": "exhigh",
+          "playMaxBrLevel": "exhigh",
+          "downloadMaxBrLevel": "exhigh",
+          "plLevel": "exhigh",
+          "dlLevel": "exhigh",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption (Radio Mix)",
+        "id": 1329122058,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 12053031,
+            "name": "Rebelion",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": null,
+        "fee": 8,
+        "v": 51,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 74266460,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/aoqbEI5ZBzPMdtEquhVJ2g==/109951164379405938.jpg",
+          "tns": [],
+          "pic_str": "109951164379405938",
+          "pic": 109951164379405938
+        },
+        "dt": 214511,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 8582836,
+          "vd": -91572.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 5149719,
+          "vd": -89089.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3433160,
+          "vd": -87712.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1255000,
+          "fid": 0,
+          "size": 28453494,
+          "vd": -91561.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 2,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 17180139520,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 17,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416075,
+        "mv": 0,
+        "publishTime": 1543161600007,
+        "privilege": {
+          "id": 1329122058,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 2603870803,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 15022232,
+            "name": "Amduscias",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 38,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 240862984,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/BJ6sYCESs4k4uK1hHMbzGg==/109951169739858232.jpg",
+          "tns": [],
+          "pic_str": "109951169739858232",
+          "pic": 109951169739858232
+        },
+        "dt": 193500,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 7742738,
+          "vd": -94957.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 4645660,
+          "vd": -92551.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3097121,
+          "vd": -91221.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1123717,
+          "fid": 0,
+          "size": 27179926,
+          "vd": -94072.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 17180139520,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 4,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416075,
+        "mv": 0,
+        "publishTime": 1721059200000,
+        "privilege": {
+          "id": 2603870803,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption（翻自 初音ミク）",
+        "id": 1426341799,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 13284468,
+            "name": "一未央",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 41,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 86001419,
+          "name": "Corruption-腐烂",
+          "picUrl": "http://p1.music.126.net/-wJIuHqfWwObtegAhMZ-8g==/109951164745351364.jpg",
+          "tns": [],
+          "pic_str": "109951164745351364",
+          "pic": 109951164745351364
+        },
+        "dt": 192104,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 7686313,
+          "vd": -24507.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 4611805,
+          "vd": -22009.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3074551,
+          "vd": -20437.0,
+          "sr": 44100
+        },
+        "sq": null,
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 262144,
+        "originCoverType": 2,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 7,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 0,
+        "privilege": {
+          "id": 1426341799,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 320000,
+          "dl": 320000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 320000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 256,
+          "preSell": false,
+          "playMaxbr": 320000,
+          "downloadMaxbr": 320000,
+          "maxBrLevel": "exhigh",
+          "playMaxBrLevel": "exhigh",
+          "downloadMaxBrLevel": "exhigh",
+          "plLevel": "exhigh",
+          "dlLevel": "exhigh",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 489970942,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 12408057,
+            "name": "Redpill",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": null,
+        "fee": 0,
+        "v": 43,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 35722293,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/rmFkFtGUJiTMyI7JCRHHGg==/18715886929986151.jpg",
+          "tns": [],
+          "pic_str": "18715886929986151",
+          "pic": 18715886929986151
+        },
+        "dt": 293241,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 11732158,
+          "vd": -89843.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 7039312,
+          "vd": -87325.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 4692889,
+          "vd": -85815.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1038451,
+          "fid": 0,
+          "size": 38064681,
+          "vd": -89896.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 2,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 786432,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 9,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 1499616000000,
+        "privilege": {
+          "id": 489970942,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 128,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 2635645709,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 53456284,
+            "name": "Virtual Nozaky",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 37,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 250446088,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/8HVwu1Eff_fwKEwTW711ww==/109951170035791250.jpg",
+          "tns": [],
+          "pic_str": "109951170035791250",
+          "pic": 109951170035791250
+        },
+        "dt": 285117,
+        "h": {
+          "br": 320001,
+          "fid": 0,
+          "size": 11407195,
+          "vd": -65742.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192001,
+          "fid": 0,
+          "size": 6844334,
+          "vd": -63507.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128001,
+          "fid": 0,
+          "size": 4562904,
+          "vd": -62581.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1048209,
+          "fid": 0,
+          "size": 37357827,
+          "vd": -65758.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 270464,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 3,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 743010,
+        "mv": 0,
+        "publishTime": 1728921600000,
+        "privilege": {
+          "id": 2635645709,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 261,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 2061221186,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 37278527,
+            "name": "Caster",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 38,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 168916698,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/gwnT-o4yFYyPAEOCTfAWnA==/109951168717165128.jpg",
+          "tns": [],
+          "pic_str": "109951168717165128",
+          "pic": 109951168717165128
+        },
+        "dt": 132644,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 5307885,
+          "vd": -75483.0,
+          "sr": 48000
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 3184749,
+          "vd": -73053.0,
+          "sr": 48000
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 2123181,
+          "vd": -71782.0,
+          "sr": 48000
+        },
+        "sq": {
+          "br": 1074139,
+          "fid": 0,
+          "size": 17809841,
+          "vd": -75400.0,
+          "sr": 48000
+        },
+        "hr": {
+          "br": 1842256,
+          "fid": 0,
+          "size": 30545657,
+          "vd": -75474.0,
+          "sr": 48000
+        },
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 537141248,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 4,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416692,
+        "mv": 0,
+        "publishTime": 1698163200000,
+        "privilege": {
+          "id": 2061221186,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "hires",
+          "playMaxBrLevel": "hires",
+          "downloadMaxBrLevel": "hires",
+          "plLevel": "hires",
+          "dlLevel": "hires",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 1999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 484314415,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 12467258,
+            "name": "EQNX",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": null,
+        "fee": 0,
+        "v": 44,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 35622390,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/tZ5v3cCzkpP4ulPdve8vgg==/18582846023006979.jpg",
+          "tns": [],
+          "pic_str": "18582846023006979",
+          "pic": 18582846023006979
+        },
+        "dt": 208561,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 8344599,
+          "vd": 2479.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 5006777,
+          "vd": 5168.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3337866,
+          "vd": 6644.0,
+          "sr": 44100
+        },
+        "sq": null,
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 262144,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 10,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 1436371200007,
+        "privilege": {
+          "id": 484314415,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 320000,
+          "dl": 320000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 320000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 128,
+          "preSell": false,
+          "playMaxbr": 320000,
+          "downloadMaxbr": 320000,
+          "maxBrLevel": "exhigh",
+          "playMaxBrLevel": "exhigh",
+          "downloadMaxBrLevel": "exhigh",
+          "plLevel": "exhigh",
+          "dlLevel": "exhigh",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "CORRUPTION",
+        "id": 1360576831,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 29875939,
+            "name": "개미",
+            "tns": [],
+            "alias": [
+              "GAE MI",
+              " 강동윤"
+            ],
+            "alia": [
+              "GAE MI",
+              " 강동윤"
+            ]
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": "",
+        "fee": 1,
+        "v": 48,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 78701128,
+          "name": "열혈사제 OST",
+          "picUrl": "http://p1.music.126.net/PGhpibG91Eksj4aT4Fr9NQ==/109951169489671908.jpg",
+          "tns": [
+            "热血司祭 OST"
+          ],
+          "pic_str": "109951169489671908",
+          "pic": 109951169489671908
+        },
+        "dt": 187116,
+        "h": {
+          "br": 320002,
+          "fid": 0,
+          "size": 7487782,
+          "vd": -35865.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192002,
+          "fid": 0,
+          "size": 4492687,
+          "vd": -33349.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128002,
+          "fid": 0,
+          "size": 2995139,
+          "vd": -31908.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 682341,
+          "fid": 0,
+          "size": 15959645,
+          "vd": -35877.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 15,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 270336,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 14,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1410822,
+        "mv": 0,
+        "publishTime": 0,
+        "tns": [
+          "CORRUPTION"
+        ],
+        "privilege": {
+          "id": 1360576831,
+          "fee": 1,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 0,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "none",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "corruption（翻自 初音ミク）",
+        "id": 1408431439,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 33876348,
+            "name": "许祈",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 45,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 83933349,
+          "name": "corruption",
+          "picUrl": "http://p1.music.126.net/oKXLCCtuSrOz-py-b3VpQg==/109951164998961666.jpg",
+          "tns": [],
+          "pic_str": "109951164998961666",
+          "pic": 109951164998961666
+        },
+        "dt": 192051,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 7684845,
+          "vd": -52737.0,
+          "sr": 48000
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 4610925,
+          "vd": -50173.0,
+          "sr": 48000
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3073965,
+          "vd": -48485.0,
+          "sr": 48000
+        },
+        "sq": {
+          "br": 3072000,
+          "fid": 0,
+          "size": 41458998,
+          "vd": -52734.0,
+          "sr": 48000
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 262144,
+        "originCoverType": 2,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 11,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 1571500800000,
+        "privilege": {
+          "id": 1408431439,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 256,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 4259079,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 99299,
+            "name": "Piraña",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 39,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 430539,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/YkYiJqn61hYsaZrZEUk7Vw==/1688849860274174.jpg",
+          "tns": [],
+          "pic": 1688849860274174
+        },
+        "dt": 138000,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 5550541,
+          "vd": -34000.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 3330341,
+          "vd": -31800.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 2220242,
+          "vd": -30500.0,
+          "sr": 44100
+        },
+        "sq": null,
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 2,
+        "s_id": 0,
+        "mark": 262144,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 5,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 1340640000007,
+        "privilege": {
+          "id": 4259079,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 320000,
+          "dl": 320000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 320000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 128,
+          "preSell": false,
+          "playMaxbr": 320000,
+          "downloadMaxbr": 320000,
+          "maxBrLevel": "exhigh",
+          "playMaxBrLevel": "exhigh",
+          "downloadMaxBrLevel": "exhigh",
+          "plLevel": "exhigh",
+          "dlLevel": "exhigh",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "CORRUPTION",
+        "id": 1971011441,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 51624825,
+            "name": "-Prey",
+            "tns": [],
+            "alias": []
+          },
+          {
+            "id": 51143698,
+            "name": "Nateki",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 44,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 149462543,
+          "name": "CORRUPTION",
+          "picUrl": "http://p1.music.126.net/uPYxUE4eWRaka0Tk_8sGsA==/109951168926788352.jpg",
+          "tns": [],
+          "pic_str": "109951168926788352",
+          "pic": 109951168926788352
+        },
+        "dt": 125538,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 5023913,
+          "vd": -92973.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 3014365,
+          "vd": -90450.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 2009591,
+          "vd": -88828.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1070068,
+          "fid": 0,
+          "size": 16791836,
+          "vd": -92976.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 1319040,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 10,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 743010,
+        "mv": 0,
+        "publishTime": 1659801600000,
+        "privilege": {
+          "id": 1971011441,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 261,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 1365471737,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 426275,
+            "name": "Alfons",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 45,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 79138667,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/JsXa0d43-pvw8lcBcfvq5Q==/109951165424675329.jpg",
+          "tns": [],
+          "pic_str": "109951165424675329",
+          "pic": 109951165424675329
+        },
+        "dt": 189753,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 7592272,
+          "vd": 15740.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 4555381,
+          "vd": 18336.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3036935,
+          "vd": 19865.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1494609,
+          "fid": 0,
+          "size": 35450907,
+          "vd": 15661.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 270464,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 11,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416074,
+        "mv": 0,
+        "publishTime": 1556208000000,
+        "privilege": {
+          "id": 1365471737,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 261,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 1954966291,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 12067080,
+            "name": "Delete",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 38,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 146324068,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/O0kVdi6lzlP3eCO4Op7uhA==/109951167535665036.jpg",
+          "tns": [],
+          "pic_str": "109951167535665036",
+          "pic": 109951167535665036
+        },
+        "dt": 325041,
+        "h": {
+          "br": 320001,
+          "fid": 0,
+          "size": 13003799,
+          "vd": -72180.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192001,
+          "fid": 0,
+          "size": 7802297,
+          "vd": -69883.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128001,
+          "fid": 0,
+          "size": 5201546,
+          "vd": -68857.0,
+          "sr": 44100
+        },
+        "sq": null,
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 0,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 4,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 2709465,
+        "mv": 0,
+        "publishTime": 0,
+        "privilege": {
+          "id": 1954966291,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 320000,
+          "dl": 320000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 320000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 128,
+          "preSell": false,
+          "playMaxbr": 320000,
+          "downloadMaxbr": 320000,
+          "maxBrLevel": "exhigh",
+          "playMaxBrLevel": "exhigh",
+          "downloadMaxBrLevel": "exhigh",
+          "plLevel": "exhigh",
+          "dlLevel": "exhigh",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 1321598947,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 12066096,
+            "name": "nadiak",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 5.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 38,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 74165405,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/E0o8Urjv9XK1IfevOHFfgQ==/109951163635298106.jpg",
+          "tns": [],
+          "pic_str": "109951163635298106",
+          "pic": 109951163635298106
+        },
+        "dt": 242076,
+        "h": null,
+        "m": null,
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3873689,
+          "vd": 0.0,
+          "sr": 44100
+        },
+        "sq": null,
+        "hr": null,
+        "a": null,
+        "cd": "1",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 262144,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 4,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": -1,
+        "mv": 0,
+        "publishTime": 0,
+        "privilege": {
+          "id": 1321598947,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 128000,
+          "dl": 128000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 128000,
+          "fl": 128000,
+          "toast": false,
+          "flag": 128,
+          "preSell": false,
+          "playMaxbr": 128000,
+          "downloadMaxbr": 128000,
+          "maxBrLevel": "standard",
+          "playMaxBrLevel": "standard",
+          "downloadMaxBrLevel": "standard",
+          "plLevel": "standard",
+          "dlLevel": "standard",
+          "flLevel": "standard",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "CORRUPTION",
+        "id": 2098550622,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 53102495,
+            "name": "Moikey",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 48,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 178776524,
+          "name": "CORRUPTION",
+          "picUrl": "http://p1.music.126.net/6EeGrz2n77g61w5nBEX3lw==/109951169060420911.jpg",
+          "tns": [],
+          "pic_str": "109951169060420911",
+          "pic": 109951169060420911
+        },
+        "dt": 162121,
+        "h": {
+          "br": 320002,
+          "fid": 0,
+          "size": 6487815,
+          "vd": -6936.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192002,
+          "fid": 0,
+          "size": 3892706,
+          "vd": -4438.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128002,
+          "fid": 0,
+          "size": 2595152,
+          "vd": -3074.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1704225,
+          "fid": 0,
+          "size": 34536426,
+          "vd": -6911.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 401408,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 14,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416692,
+        "mv": 0,
+        "publishTime": 1699459200000,
+        "privilege": {
+          "id": 2098550622,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption",
+        "id": 1332790710,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 30348528,
+            "name": "The Cytex",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 8,
+        "v": 44,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 74847475,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/Mw06bZaP2QeFCv8mLfYO7g==/109951165082101836.jpg",
+          "tns": [],
+          "pic_str": "109951165082101836",
+          "pic": 109951165082101836
+        },
+        "dt": 187599,
+        "h": {
+          "br": 320000,
+          "fid": 0,
+          "size": 7506591,
+          "vd": -75802.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192000,
+          "fid": 0,
+          "size": 4503972,
+          "vd": -73341.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128000,
+          "fid": 0,
+          "size": 3002662,
+          "vd": -71813.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1763171,
+          "fid": 0,
+          "size": 41346236,
+          "vd": -75900.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 1,
+        "s_id": 0,
+        "mark": 270336,
+        "originCoverType": 0,
+        "originSongSimpleData": null,
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 10,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 1416074,
+        "mv": 0,
+        "publishTime": 1543075200000,
+        "privilege": {
+          "id": 1332790710,
+          "fee": 8,
+          "payed": 1,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 4,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      },
+      {
+        "name": "Corruption（covered by ラー）",
+        "id": 1996726131,
+        "pst": 0,
+        "t": 0,
+        "ar": [
+          {
+            "id": 35877613,
+            "name": "ラー",
+            "tns": [],
+            "alias": []
+          }
+        ],
+        "alia": [],
+        "pop": 10.0,
+        "st": 0,
+        "rt": "",
+        "fee": 0,
+        "v": 37,
+        "crbt": null,
+        "cf": "",
+        "al": {
+          "id": 154594942,
+          "name": "Corruption",
+          "picUrl": "http://p1.music.126.net/X761hqh4j2nstmpbZzNEog==/109951168043399677.jpg",
+          "tns": [],
+          "pic_str": "109951168043399677",
+          "pic": 109951168043399677
+        },
+        "dt": 116000,
+        "h": {
+          "br": 320003,
+          "fid": 0,
+          "size": 4642525,
+          "vd": -29877.0,
+          "sr": 44100
+        },
+        "m": {
+          "br": 192003,
+          "fid": 0,
+          "size": 2785533,
+          "vd": -27341.0,
+          "sr": 44100
+        },
+        "l": {
+          "br": 128003,
+          "fid": 0,
+          "size": 1857036,
+          "vd": -25646.0,
+          "sr": 44100
+        },
+        "sq": {
+          "br": 1649300,
+          "fid": 0,
+          "size": 23914853,
+          "vd": -29856.0,
+          "sr": 44100
+        },
+        "hr": null,
+        "a": null,
+        "cd": "01",
+        "no": 1,
+        "rtUrl": null,
+        "ftype": 0,
+        "rtUrls": [],
+        "djId": 0,
+        "copyright": 0,
+        "s_id": 0,
+        "mark": 128,
+        "originCoverType": 2,
+        "originSongSimpleData": {
+          "songId": 1457289187,
+          "name": "Corruption",
+          "artists": [
+            {
+              "id": 30763533,
+              "name": "大沼パセリ"
+            },
+            {
+              "id": 159692,
+              "name": "初音ミク"
+            }
+          ],
+          "albumMeta": {
+            "id": 91315491,
+            "name": "ave"
+          }
+        },
+        "tagPicList": null,
+        "resourceState": true,
+        "version": 3,
+        "songJumpInfo": null,
+        "entertainmentTags": null,
+        "single": 0,
+        "noCopyrightRcmd": null,
+        "rtype": 0,
+        "rurl": null,
+        "mst": 9,
+        "cp": 0,
+        "mv": 0,
+        "publishTime": 0,
+        "privilege": {
+          "id": 1996726131,
+          "fee": 0,
+          "payed": 0,
+          "st": 0,
+          "pl": 999000,
+          "dl": 999000,
+          "sp": 7,
+          "cp": 1,
+          "subp": 1,
+          "cs": false,
+          "maxbr": 999000,
+          "fl": 320000,
+          "toast": false,
+          "flag": 129,
+          "preSell": false,
+          "playMaxbr": 999000,
+          "downloadMaxbr": 999000,
+          "maxBrLevel": "lossless",
+          "playMaxBrLevel": "lossless",
+          "downloadMaxBrLevel": "lossless",
+          "plLevel": "lossless",
+          "dlLevel": "lossless",
+          "flLevel": "exhigh",
+          "rscl": null,
+          "freeTrialPrivilege": {
+            "resConsumable": false,
+            "userConsumable": false,
+            "listenType": null,
+            "cannotListenReason": null,
+            "playReason": null,
+            "freeLimitTagType": null
+          },
+          "rightSource": 0,
+          "chargeInfoList": [
+            {
+              "rate": 128000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 192000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 320000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 0
+            },
+            {
+              "rate": 999000,
+              "chargeUrl": null,
+              "chargeMessage": null,
+              "chargeType": 1
+            }
+          ],
+          "code": 0,
+          "message": null,
+          "plLevels": null,
+          "dlLevels": null,
+          "ignoreCache": null,
+          "bd": null
+        }
+      }
+    ],
+    "songCount": 301
+  },
+  "code": 200
+}

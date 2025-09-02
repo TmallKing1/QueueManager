@@ -1,4 +1,4 @@
-package top.pigest.queuemanagerdemo.system.settings;
+package top.pigest.queuemanagerdemo.settings;
 
 import com.google.gson.annotations.SerializedName;
 import top.pigest.queuemanagerdemo.Settings;

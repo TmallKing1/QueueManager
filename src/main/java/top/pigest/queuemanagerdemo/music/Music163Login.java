@@ -1,4 +1,4 @@
-package top.pigest.queuemanagerdemo.system.netease;
+package top.pigest.queuemanagerdemo.music;
 
 import com.google.gson.JsonObject;
 import com.google.zxing.EncodeHintType;
@@ -25,8 +25,8 @@ import org.kordamp.ikonli.javafx.FontIcon;
 import top.pigest.queuemanagerdemo.QueueManager;
 import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
-import top.pigest.queuemanagerdemo.widget.WhiteFontIcon;
+import top.pigest.queuemanagerdemo.control.QMButton;
+import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
 import top.pigest.queuemanagerdemo.window.main.MusicSystemContainer;
 
 import java.io.IOException;
@@ -134,15 +134,13 @@ public class Music163Login extends Scene {
         this.parent.closeLogin();
         Settings.saveCookie(true);
         Platform.runLater(() -> {
-            QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemContainer().withParentContainer(this.parent), this.parent.getId());
+            QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemContainer().withParentContainer(this.parent.getParentContainer()), this.parent.getId());
             Utils.showDialogMessage("登录成功", false, QueueManager.INSTANCE.getMainScene().getRootDrawer());
         });
     }
 
     public void stopTimeline() {
-        if (timeline != null) {
-            timeline.stop();
-        }
+        Utils.onPresent(timeline, Timeline::stop);
     }
 
     public void loginFail() {
@@ -169,8 +167,7 @@ public class Music163Login extends Scene {
                     if (!this.scanned) {
                         this.qrCodeHintBox.getChildren().clear();
                         this.qrCodeHint.setText("扫码成功\n请在手机上点击【授权登录】");
-                        FontIcon icon = new FontIcon("far-check-circle");
-                        icon.setIconSize(50);
+                        FontIcon icon = new FontIcon("far-check-circle:50");
                         icon.setIconColor(Paint.valueOf("#379437"));
                         VBox.setMargin(icon, new Insets(0, 0, 30, 0));
                         this.qrCodeHintBox.getChildren().add(icon);

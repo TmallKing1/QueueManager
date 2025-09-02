@@ -24,8 +24,8 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
-import top.pigest.queuemanagerdemo.widget.WhiteFontIcon;
+import top.pigest.queuemanagerdemo.control.QMButton;
+import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
 
 import javax.crypto.Cipher;
 import java.io.IOException;
@@ -121,9 +121,9 @@ class PasswordLogin extends VBox implements CaptchaLogin, LoginMethodLocker {
 
     private void loginStage3(String encryptedPassword, String token, String challenge, String validate, String seccode) {
         Platform.runLater(() -> this.loginButton.setText("登录中(3/3)"));
-        try (CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build()) {
+        try (CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build()) {
             HttpClientContext context = HttpClientContext.create();
-            context.setCookieStore(Settings.getBiliCookieStore());
+            context.setCookieStore(Settings.getCookieStore());
             HttpPost httpPost = new HttpPost("https://passport.bilibili.com/x/passport-login/web/login");
             httpPost.setConfig(Settings.DEFAULT_REQUEST_CONFIG);
             httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");

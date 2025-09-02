@@ -1,4 +1,4 @@
-package top.pigest.queuemanagerdemo.system.netease;
+package top.pigest.queuemanagerdemo.music;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -43,7 +43,7 @@ public class Music163Encryptor {
         nameValuePairs.add(new BasicNameValuePair("encSecKey", encSecKey));
         HttpPost post = getHttpPost(url1, nameValuePairs);
 
-        try (CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(Settings.getBiliCookieStore()).build();
+        try (CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(Settings.getCookieStore()).build();
              CloseableHttpResponse response = httpClient.execute(post)) {
             HttpEntity entity = response.getEntity();
             String result = EntityUtils.toString(entity);

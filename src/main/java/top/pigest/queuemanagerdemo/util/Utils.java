@@ -14,6 +14,7 @@ import com.jfoenix.effects.JFXDepthManager;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -31,7 +32,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.util.EntityUtils;
 import top.pigest.queuemanagerdemo.Settings;
-import top.pigest.queuemanagerdemo.widget.QMButton;
+import top.pigest.queuemanagerdemo.control.QMButton;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -46,22 +47,35 @@ public class Utils {
         return object;
     }
 
+    public static <T> void onPresent(T object, Consumer<T> consumer) {
+        if (object == null) {
+            return;
+        }
+        consumer.accept(object);
+    }
+
     public static void showDialogMessage(String message, boolean isError, StackPane rootStackPane) {
-        showDialogMessage(message, isError, rootStackPane, 5);
+        showDialogMessage(message, isError, rootStackPane, 5, 400);
     }
 
     public static void showDialogMessage(String message, boolean isError, StackPane rootStackPane, double duration) {
+        showDialogMessage(message, isError, rootStackPane, duration, 400);
+    }
+
+    public static void showDialogMessage(String message, boolean isError, StackPane rootStackPane, double duration, int width) {
         JFXSnackbar snackbar = new JFXSnackbar(rootStackPane);
-        snackbar.setPrefWidth(400);
+        snackbar.setPrefWidth(width);
+        snackbar.setCursor(Cursor.HAND);
+        snackbar.setOnMouseClicked(event -> snackbar.close());
         Label toast = new Label();
         toast.setMinWidth(Control.USE_PREF_SIZE);
         toast.setWrapText(true);
         toast.setText(message);
         toast.setFont(Settings.DEFAULT_FONT);
-        toast.setTextFill(Paint.valueOf(isError ? "##FF6060" : "WHITE"));
+        toast.setTextFill(Paint.valueOf("WHITE"));
         StackPane toastContainer = new StackPane(toast);
         toastContainer.setPadding(new Insets(10, 20, 10, 20));
-        toastContainer.setBackground(new Background(new BackgroundFill(Paint.valueOf("#1f1e33"), new CornerRadii(3), Insets.EMPTY)));
+        toastContainer.setBackground(new Background(new BackgroundFill(Paint.valueOf(isError ? "#ff6060" : "#1f1e33"), new CornerRadii(3), Insets.EMPTY)));
         JFXDepthManager.setDepth(toastContainer, 2);
         JFXSnackbar.SnackbarEvent snackbarEvent = new JFXSnackbar.SnackbarEvent(toastContainer, Duration.seconds(duration));
         snackbar.enqueue(snackbarEvent);
@@ -135,12 +149,12 @@ public class Utils {
                 buvid3.setDomain("bilibili.com");
                 buvid3.setExpiryDate(new Date(System.currentTimeMillis() + 400L * 24 * 3600 * 1000));
                 buvid3.setPath("/");
-                Settings.getBiliCookieStore().addCookie(buvid3);
+                Settings.getCookieStore().addCookie(buvid3);
                 BasicClientCookie buvid4 = new BasicClientCookie("buvid4", b4);
                 buvid4.setDomain("bilibili.com");
                 buvid3.setExpiryDate(new Date(System.currentTimeMillis() + 400L * 24 * 3600 * 1000));
                 buvid3.setPath("/");
-                Settings.getBiliCookieStore().addCookie(buvid4);
+                Settings.getCookieStore().addCookie(buvid4);
                 Settings.saveCookie(false);
             }
         }

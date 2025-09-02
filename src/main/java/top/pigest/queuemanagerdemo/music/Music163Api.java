@@ -1,6 +1,7 @@
-package top.pigest.queuemanagerdemo.system.netease;
+package top.pigest.queuemanagerdemo.music;
 
 import com.google.gson.JsonObject;
+import top.pigest.queuemanagerdemo.Settings;
 
 public class Music163Api {
     // 获取二维码登录 key
@@ -25,6 +26,7 @@ public class Music163Api {
     // 登出
     public static JsonObject logout() throws Exception {
         String url = "https://music.163.com/weapi/logout";
+        Settings.removeCookie("MUSIC_U", null, null);
         return Music163Encryptor.postRequest(url, new JsonObject());
     }
 
@@ -45,6 +47,14 @@ public class Music163Api {
     public static JsonObject userInfo() throws Exception {
         String url = "https://music.163.com/weapi/w/nuser/account/get";
         JsonObject o = new JsonObject();
+        return Music163Encryptor.postRequest(url, o);
+    }
+
+    // 获取用户 VIP 信息
+    public static JsonObject vipInfo(String uid) throws Exception {
+        String url = "https://music.163.com/weapi/music-vip-membership/front/vip/info";
+        JsonObject o = new JsonObject();
+        o.addProperty("userId", uid);
         return Music163Encryptor.postRequest(url, o);
     }
 

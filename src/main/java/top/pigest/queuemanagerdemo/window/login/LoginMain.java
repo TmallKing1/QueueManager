@@ -8,7 +8,7 @@ import javafx.scene.SceneAntialiasing;
 import javafx.scene.layout.*;
 import top.pigest.queuemanagerdemo.QueueManager;
 import top.pigest.queuemanagerdemo.util.Utils;
-import top.pigest.queuemanagerdemo.widget.QMButton;
+import top.pigest.queuemanagerdemo.control.QMButton;
 
 public class LoginMain extends Scene {
     private LoginMethod loginMethod;

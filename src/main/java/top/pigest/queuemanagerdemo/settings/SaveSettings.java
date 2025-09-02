@@ -1,4 +1,4 @@
-package top.pigest.queuemanagerdemo.system.settings;
+package top.pigest.queuemanagerdemo.settings;
 
 import com.google.gson.annotations.SerializedName;
 import top.pigest.queuemanagerdemo.Settings;
@@ -10,6 +10,8 @@ public class SaveSettings {
     public long lastRefreshTime = 0;
     @SerializedName("danmaku_service")
     public DanmakuServiceSettings danmakuServiceSettings = new DanmakuServiceSettings();
+    @SerializedName("music_service")
+    public MusicServiceSettings musicServiceSettings = new MusicServiceSettings();
 
     public String getRefreshToken() {
         return refreshToken;
@@ -35,6 +37,15 @@ public class SaveSettings {
 
     public void resetDanmakuServiceSettings() {
         this.danmakuServiceSettings = new DanmakuServiceSettings();
+        Settings.saveSettings();
+    }
+
+    public MusicServiceSettings getMusicServiceSettings() {
+        return musicServiceSettings;
+    }
+
+    public void resetMusicServiceSettings() {
+        this.musicServiceSettings = new MusicServiceSettings();
         Settings.saveSettings();
     }
 }

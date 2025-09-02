@@ -1,0 +1,25 @@
+.combo-box-popup .list-view {
+    -fx-background-color: #e5dbd7;
+    -fx-background-radius: 0;
+    -fx-translate-y: 2;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #e7e6ff;
+    -fx-smooth: true;
+    -fx-font-smoothing-type: gray;
+}
+
+.combo-box-popup .list-view .list-cell:odd {
+    -fx-background-color: #cecefe;
+    -fx-smooth: true;
+    -fx-font-smoothing-type: gray;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, .combo-box-popup .list-view .list-cell:filled:selected:hover {
+    -fx-background-color: #1f1e33;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover{
+    -fx-background-color: rgb(67, 65, 115);
+}

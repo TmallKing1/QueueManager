@@ -1,0 +1,44 @@
+{
+  "message": "成功",
+  "data": {
+    "redVipLevelIcon": "https://p6.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/32582185437/838c/3e35/26c7/1483dd70f2bbbf601f095dff56c603b8.png",
+    "redVipLevel": 7,
+    "redVipAnnualCount": 1,
+    "musicPackage": {
+      "vipCode": 220,
+      "expireTime": 1758297599000,
+      "iconUrl": "https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/21892874340/50e6/e81d/5292/2d693cbb98954e28d4d9fdb11be99a8b.png",
+      "dynamicIconUrl": "",
+      "vipLevel": 7,
+      "isSignDeduct": false,
+      "isSignIap": false,
+      "isSignIapDeduct": false,
+      "isSign": false
+    },
+    "associator": {
+      "vipCode": 100,
+      "expireTime": 1758297599000,
+      "iconUrl": "https://p6.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/32582185437/838c/3e35/26c7/1483dd70f2bbbf601f095dff56c603b8.png",
+      "dynamicIconUrl": "https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/32141388261/a2e9/3284/e98d/937112ec4f5a78553946211a9794eb21.webp",
+      "vipLevel": 7,
+      "isSignDeduct": false,
+      "isSignIap": false,
+      "isSignIapDeduct": false,
+      "isSign": false
+    },
+    "redVipDynamicIconUrl": null,
+    "redVipDynamicIconUrl2": null,
+    "redplus": {
+      "vipCode": 300,
+      "expireTime": 1758211199000,
+      "iconUrl": "https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/32582305307/8bab/f0f1/ba3f/3f574fb88acef4c7e5bc441d2f12fd5b.png",
+      "dynamicIconUrl": "https://p6.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/32582487466/d33c/1c00/03f4/11bb2079fc3623156679d27f9b99fcb4.webp",
+      "vipLevel": 7,
+      "isSignDeduct": false,
+      "isSignIap": false,
+      "isSignIapDeduct": false,
+      "isSign": false
+    }
+  },
+  "code": 200
+}

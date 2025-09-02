@@ -1,4 +1,4 @@
-package top.pigest.queuemanagerdemo.widget;
+package top.pigest.queuemanagerdemo.control;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.layout.*;

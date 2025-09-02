@@ -1,11 +1,14 @@
 package top.pigest.queuemanagerdemo;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.window.login.LoginMain;
 import top.pigest.queuemanagerdemo.window.main.MainScene;
+
+import java.util.Objects;
 
 public class QueueManager extends Application {
     public static QueueManager INSTANCE;
@@ -19,7 +22,8 @@ public class QueueManager extends Application {
         INSTANCE = this;
         this.primaryStage = primaryStage;
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Queue Manager Demo");
+        primaryStage.setTitle("Queue Manager");
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("icon.png"))));
         primaryStage.setScene(new MainScene());
         primaryStage.setOnCloseRequest(event -> {
             MainScene scene = (MainScene) primaryStage.getScene();

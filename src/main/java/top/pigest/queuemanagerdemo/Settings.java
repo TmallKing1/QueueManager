@@ -20,8 +20,9 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import top.pigest.queuemanagerdemo.system.settings.DanmakuServiceSettings;
-import top.pigest.queuemanagerdemo.system.settings.SaveSettings;
+import top.pigest.queuemanagerdemo.settings.DanmakuServiceSettings;
+import top.pigest.queuemanagerdemo.settings.MusicServiceSettings;
+import top.pigest.queuemanagerdemo.settings.SaveSettings;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.OAEPParameterSpec;
@@ -53,7 +54,7 @@ public class Settings {
             "JNrRuoEUXpabUzGB8QIDAQAB\n" +
             "-----END PUBLIC KEY-----";
     public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:141.0) Gecko/20100101 Firefox/141.0";
-    private static CookieStore BILI_COOKIE_STORE = new BasicCookieStore();
+    private static CookieStore COOKIE_STORE = new BasicCookieStore();
     private static SaveSettings SAVE_SETTINGS;
 
     public static long MID = -1;
@@ -74,22 +75,48 @@ public class Settings {
         return SAVE_SETTINGS.getRefreshToken();
     }
 
-    public static CookieStore getBiliCookieStore() {
+    public static CookieStore getCookieStore() {
         LocalDate date = LocalDate.now();
         LocalDate lastRefreshDate = Instant.ofEpochMilli(SAVE_SETTINGS.getLastRefreshTime()).atZone(ZoneId.systemDefault()).toLocalDate();
         if (!date.equals(lastRefreshDate)) {
-            Optional<Cookie> biliJct = BILI_COOKIE_STORE.getCookies().stream().filter(cookie -> cookie.getName().equals("bili_jct")).findAny();
+            Optional<Cookie> biliJct = COOKIE_STORE.getCookies().stream().filter(cookie -> cookie.getName().equals("bili_jct")).findAny();
             if (biliJct.isPresent()) {
                 refreshCookie(biliJct.get().getValue());
             } else {
                 SAVE_SETTINGS.setLastRefreshTime(System.currentTimeMillis());
             }
         }
-        return BILI_COOKIE_STORE;
+        return COOKIE_STORE;
+    }
+
+    /**
+     * 从CookieStore中删除指定的cookie
+     * @param name cookie名称
+     * @param domain 域名
+     * @param path 路径（可选）
+     */
+    public static void removeCookie(String name, String domain, String path) {
+        CookieStore cookieStore = getCookieStore();
+        CookieStore tempStore = new BasicCookieStore();
+
+        for (Cookie cookie : cookieStore.getCookies()) {
+            if (cookie.getName().equals(name) &&
+                (domain == null || cookie.getDomain().equals(domain)) &&
+                (path == null || cookie.getPath().equals(path))) {
+                continue;
+            }
+            tempStore.addCookie(cookie);
+        }
+
+        cookieStore.clear();
+        for (Cookie cookie : tempStore.getCookies()) {
+            cookieStore.addCookie(cookie);
+        }
+        Settings.saveCookie(false);
     }
 
     private static void refreshCookie(String biliJct) {
-        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(BILI_COOKIE_STORE).build()) {
+        try (CloseableHttpClient client = HttpClients.custom().setDefaultCookieStore(COOKIE_STORE).build()) {
             URI uri = new URIBuilder("https://passport.bilibili.com/x/passport-login/web/cookie/info")
                     .addParameter("csrf", biliJct).build();
             HttpGet httpGet = new HttpGet(uri);
@@ -97,7 +124,7 @@ public class Settings {
             CloseableHttpResponse response = client.execute(httpGet);
             JsonObject object = JsonParser.parseString(EntityUtils.toString(response.getEntity())).getAsJsonObject();
             if (object.get("code").getAsInt() == -101) {
-                BILI_COOKIE_STORE.clear();
+                COOKIE_STORE.clear();
                 SAVE_SETTINGS.setLastRefreshTime(System.currentTimeMillis());
             } else if (object.get("code").getAsInt() == 0) {
                 if (object.getAsJsonObject("data").get("refresh").getAsBoolean()) {
@@ -144,7 +171,7 @@ public class Settings {
                         HttpPost httpPost = new HttpPost("https://passport.bilibili.com/x/passport-login/web/confirm/refresh");
                         httpPost.setConfig(DEFAULT_REQUEST_CONFIG);
                         httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
-                        Optional<Cookie> biliJct1 = BILI_COOKIE_STORE.getCookies().stream().filter(cookie -> cookie.getName().equals("bili_jct")).findAny();
+                        Optional<Cookie> biliJct1 = COOKIE_STORE.getCookies().stream().filter(cookie -> cookie.getName().equals("bili_jct")).findAny();
                         assert biliJct1.isPresent();
                         List<NameValuePair> lp2 = new ArrayList<>();
                         lp2.add(new BasicNameValuePair("refresh_token", SAVE_SETTINGS.getRefreshToken()));
@@ -180,6 +207,14 @@ public class Settings {
         SAVE_SETTINGS.resetDanmakuServiceSettings();
     }
 
+    public static MusicServiceSettings getMusicServiceSettings() {
+        return SAVE_SETTINGS.getMusicServiceSettings();
+    }
+
+    public static void resetMusicServiceSettings() {
+        SAVE_SETTINGS.resetMusicServiceSettings();
+    }
+
     public static void setRefreshToken(String refreshToken) {
         SAVE_SETTINGS.setRefreshToken(refreshToken);
         saveSettings();
@@ -204,15 +239,15 @@ public class Settings {
 
     public static void loadCookie() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(COOKIE_STORE_FILE))) {
-            BILI_COOKIE_STORE = (CookieStore) ois.readObject();
+            COOKIE_STORE = (CookieStore) ois.readObject();
         } catch (Exception e) {
-            BILI_COOKIE_STORE = new BasicCookieStore();
+            COOKIE_STORE = new BasicCookieStore();
         }
     }
 
     public static void saveCookie(boolean updateRefreshTime) {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(COOKIE_STORE_FILE))) {
-            out.writeObject(BILI_COOKIE_STORE);
+            out.writeObject(COOKIE_STORE);
             if (updateRefreshTime) {
                 SAVE_SETTINGS.setLastRefreshTime(System.currentTimeMillis());
             }
@@ -234,11 +269,16 @@ public class Settings {
     }
 
     public static String getCookie(String name) {
-        return getBiliCookieStore().getCookies().stream().filter(cookie -> cookie.getName().equalsIgnoreCase(name)).findFirst().orElseThrow().getValue();
+        return getCookieStore().getCookies().stream().filter(cookie -> cookie.getName().equalsIgnoreCase(name)
+                                                                       && !cookie.getValue().isEmpty()
+                                                                       && !cookie.isExpired(new Date(System.currentTimeMillis())))
+                .findFirst().orElseThrow().getValue();
     }
 
     public static boolean hasCookie(String name) {
-        return getBiliCookieStore().getCookies().stream().anyMatch(cookie -> cookie.getName().equalsIgnoreCase(name));
+        return getCookieStore().getCookies().stream().anyMatch(cookie -> cookie.getName().equalsIgnoreCase(name)
+                                                                         && !cookie.getValue().isEmpty()
+                                                                         && !cookie.isExpired(new Date(System.currentTimeMillis())));
     }
 
     public static void setMID(long MID) {
