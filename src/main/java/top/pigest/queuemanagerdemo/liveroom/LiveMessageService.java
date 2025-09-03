@@ -332,6 +332,10 @@ public class LiveMessageService implements WebSocket.Listener {
         }
     }
 
+    public List<MessageHandler> getMessageHandlers() {
+        return messageHandlers;
+    }
+
     public record MessageStreamVerification(String token, List<Host> hosts) {
     }
 

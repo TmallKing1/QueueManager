@@ -70,7 +70,7 @@ public class MusicHandler {
             if (i != 0) {
                 this.songs.remove(song);
                 this.songs.addFirst(song);
-                this.player.moveQueueSong(songs, i, 0);
+                Platform.runLater(() -> this.player.moveQueueSong(songs, i, 0));
             }
         } else {
             addSong(song, 0);
@@ -82,7 +82,7 @@ public class MusicHandler {
             int i = this.songs.indexOf(song);
             this.songs.remove(song);
             this.songs.add(index, song);
-            this.player.moveQueueSong(songs, i, index);
+            Platform.runLater(() -> this.player.moveQueueSong(songs, i, index));
         }
     }
 
@@ -506,6 +506,7 @@ public class MusicHandler {
                 try {
                     int index = Integer.parseInt(text);
                     if (songs.size() > index && index >= 1 && isPass(info)) {
+                        endFirst(true);
                         play(songs.get(index));
                     }
                 } catch (Exception e) {
@@ -531,7 +532,7 @@ public class MusicHandler {
 
     private static boolean isPass(JsonArray info) {
         boolean pass = false;
-        long uid = info.get(0).getAsJsonArray().get(15).getAsJsonObject().getAsJsonObject("user").get("uid").getAsLong();
+        long uid = info.get(2).getAsJsonArray().get(0).getAsLong();
         if (uid == Settings.MID && getMusicServiceSettings().skipUsers.contains(MusicServiceSettings.UserGroups.ANCHOR)) {
             pass = true;
         }

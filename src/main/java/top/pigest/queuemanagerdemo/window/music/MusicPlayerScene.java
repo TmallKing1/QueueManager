@@ -315,7 +315,7 @@ public class MusicPlayerScene extends Scene {
         parallelTransition.getChildren().add(transition);
         parallelTransition.getChildren().add(transition1);
         index++;
-        while (index < this.musicHandler.getSongs().size()) {
+        while (index < songs.size()) {
             TranslateTransition transition2 = new TranslateTransition(Duration.millis(200), this.downMain.getChildren().get(index));
             transition2.setFromY(0);
             transition2.setToY(-30);

@@ -154,10 +154,12 @@ public class MusicServiceSettings {
 
     public void setTopHeader(String topHeader) {
         this.topHeader = topHeader;
+        Settings.saveSettings();
     }
 
     public void setPlayHeader(String playHeader) {
         this.playHeader = playHeader;
+        Settings.saveSettings();
     }
 
     public void modifySkipUsers(UserGroups userGroups, boolean enable) {
