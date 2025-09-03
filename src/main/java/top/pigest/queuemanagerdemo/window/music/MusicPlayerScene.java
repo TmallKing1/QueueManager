@@ -23,6 +23,7 @@ import top.pigest.queuemanagerdemo.music.MusicHandler;
 import top.pigest.queuemanagerdemo.music.Song;
 import top.pigest.queuemanagerdemo.util.MouseUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -45,6 +46,7 @@ public class MusicPlayerScene extends Scene {
     private Animation downAnimation;
 
     private final MusicHandler musicHandler;
+    private final List<Song> backSongs = new ArrayList<>();
 
     private double xOffset = 0;
     private double yOffset = 0;
@@ -249,9 +251,13 @@ public class MusicPlayerScene extends Scene {
     }
 
     public void updateQueue(List<Song> songs) {
-        this.downMain.getChildren().clear();
-        for (int index = 0; index < songs.size(); index++) {
-            this.downMain.getChildren().add(this.getSongManager(songs.get(index), index));
+        if (!this.backSongs.equals(songs)) {
+            this.backSongs.clear();
+            this.backSongs.addAll(List.copyOf(songs));
+            this.downMain.getChildren().clear();
+            for (int index = 0; index < songs.size(); index++) {
+                this.downMain.getChildren().add(this.getSongManager(songs.get(index), index));
+            }
         }
     }
 
