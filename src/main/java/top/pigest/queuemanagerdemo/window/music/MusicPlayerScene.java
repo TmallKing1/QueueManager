@@ -235,6 +235,7 @@ public class MusicPlayerScene extends Scene {
         this.cover.setImage(this.musicHandler.getNoPlayingImage());
         this.title.setText("暂无播放");
         this.artist.setText("");
+        this.lyric.setText("");
     }
 
     public void updateContent() {
