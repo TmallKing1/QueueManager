@@ -202,7 +202,7 @@ public class LiveMessageService implements WebSocket.Listener {
     }
 
     public boolean isSessionAvailable() {
-        return webSocket != null && (webSocket.isInputClosed() || !webSocket.isOutputClosed());
+        return webSocket != null && !webSocket.isInputClosed() && !webSocket.isOutputClosed();
     }
 
     public void close() throws IOException {
