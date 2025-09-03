@@ -239,7 +239,11 @@ public class MainScene extends Scene {
         if (source != null && !source.getId().isEmpty() && source.getId().equals(this.getMainContainer().getId())) {
             return;
         }
-        this.setMainContainer(((MultiMenuProvider<?>) supplier.get()).withParentContainer(parent), source != null ? source.getId() : "");
+        Pane pane = supplier.get();
+        if (pane instanceof ChildPage childPage) {
+            childPage.setParentPage(parent);
+        }
+        this.setMainContainer(pane, source != null ? source.getId() : "");
     }
 
     public void setMainContainer(Supplier<Pane> supplier, QMButton source) {
@@ -276,10 +280,20 @@ public class MainScene extends Scene {
         return button;
     }
 
+    public QMButton createMiscFunctionButton(String backgroundColor, String text, String iconCode, Supplier<Pane> supplier) {
+        QMButton button = new QMButton(null, backgroundColor, false);
+        button.setId(text);
+        button.setPrefWidth(200);
+        FontIcon fontIcon = new WhiteFontIcon(iconCode);
+        button.setText(text);
+        button.setGraphic(fontIcon);
+        button.setOnAction(actionEvent -> this.setMainContainer(supplier, button));
+        return button;
+    }
     public void refreshMenuButtons() {
         this.menuItems.getChildren().clear();
         if (this.getMainContainer() instanceof ChildPage childPage) {
-            Pane parent = childPage.getParentContainer();
+            Pane parent = childPage.getParentPage();
             if (parent != null) {
                 QMButton back = new QMButton("", null, false);
                 back.setGraphic(new FontIcon("far-arrow-alt-circle-left"));

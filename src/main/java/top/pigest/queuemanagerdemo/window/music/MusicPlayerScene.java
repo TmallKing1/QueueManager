@@ -98,14 +98,18 @@ public class MusicPlayerScene extends Scene {
         JFXDepthManager.setDepth(this.cover, 2);
         this.refreshControlButtons(false);
 
-        this.down.setMinHeight(300);
-        this.down.setMaxHeight(300);
+        updateListHeight();
         this.down.setAlignment(Pos.TOP_LEFT);
         this.down.getChildren().add(downMain);
 
         updateColor();
         updateFont();
         stopPlaying();
+    }
+
+    public void updateListHeight() {
+        this.down.setMinHeight(Settings.getMusicServiceSettings().listHeight);
+        this.down.setMaxHeight(Settings.getMusicServiceSettings().listHeight);
     }
 
     private void hideControl(HBox upControl, StackPane up) {
@@ -222,8 +226,7 @@ public class MusicPlayerScene extends Scene {
             this.rootBorderPane.setBottom(null);
         }
         if (this.musicHandler.getPlayerStage() != null && this.musicHandler.getPlayerStage().isShowing()) {
-            this.musicHandler.getPlayerStage().hide();
-            this.musicHandler.showStage();
+            this.musicHandler.getPlayerStage().sizeToScene();
         }
         updateColor();
     }
@@ -256,8 +259,11 @@ public class MusicPlayerScene extends Scene {
             downAnimation.stop();
         }
         updateQueue(songs);
+        if (songs.isEmpty()) {
+            return;
+        }
         if (index == -1) {
-            index = this.musicHandler.getSongs().size() - 1;
+            index = songs.size() - 1;
         }
         TranslateTransition transition = new TranslateTransition(Duration.millis(200), this.downMain.getChildren().get(index));
         transition.setFromX(300);
@@ -270,7 +276,7 @@ public class MusicPlayerScene extends Scene {
         ParallelTransition parallelTransition = new ParallelTransition();
         parallelTransition.getChildren().add(transition);
         parallelTransition.getChildren().add(transition1);
-        while (index < this.musicHandler.getSongs().size() - 1) {
+        while (index < songs.size() - 1) {
             index++;
             TranslateTransition transition2 = new TranslateTransition(Duration.millis(200), this.downMain.getChildren().get(index));
             transition2.setFromY(-30);

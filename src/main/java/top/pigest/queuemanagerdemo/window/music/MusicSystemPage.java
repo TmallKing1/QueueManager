@@ -121,7 +121,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                 cookieStore.addCookie(cookie);
                 Settings.saveCookie(false);
                 this.preloaded = true;
-                Platform.runLater(() -> QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentContainer(this.getParentContainer()), this.getId()));
+                Platform.runLater(() -> QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentPage(this.getParentPage()), this.getId()));
                 this.preloadTimeline.stop();
             }
         }));
@@ -261,6 +261,13 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                     });
                 }))
                 .addPage()
+                .addControl("点歌列表高度", Utils.make(new IntegerModifier(getMusicServiceSettings().listHeight, 20, 100, 1000), control -> {
+                    control.setOnValueSet(i -> {
+                        getMusicServiceSettings().setListHeight(i);
+                        MusicHandler.INSTANCE.getPlayer().updateListHeight();
+                        MusicHandler.INSTANCE.getPlayer().setQueueShow();
+                    });
+                }))
                 .addControl("显示底部提示", Utils.make(new JFXToggleButton(), button -> {
                     button.setSize(8);
                     button.setSelected(getMusicServiceSettings().displayHint);
@@ -357,7 +364,12 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                         radioButton.setOnAction(event -> getMusicServiceSettings().setMusicLevel(value));
                         radioButton.setToggleGroup(group);
                         if (value.ordinal() >= MusicServiceSettings.MusicLevel.LOSSLESS.ordinal()) {
+                            Tooltip tooltip = new Tooltip("暂不支持");
+                            tooltip.setShowDelay(Duration.ZERO);
+                            tooltip.setHideDelay(Duration.ZERO);
+                            tooltip.setFont(Settings.DEFAULT_FONT);
                             radioButton.setDisable(true);
+                            radioButton.setTooltip(tooltip);
                         }
                         hBox.getChildren().add(radioButton);
                     }
@@ -407,7 +419,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                     String method1 = "+空格+歌名";
                     String method2 = "+空格+歌名@歌手";
                     String method3 = "#网易云歌曲ID";
-                    Label label = Utils.createLabel(name, -1, Pos.CENTER_LEFT);
+                    Label label = Utils.createLabel("%s\n%s".formatted(name, "当前已关闭"), -1, Pos.CENTER_LEFT);
                     JFXTextField innerContainer = Utils.make(new JFXTextField(), control -> {
                         control.textProperty().addListener((observable, oldValue, newValue) -> {
                             getMusicServiceSettings().setRequestHeader(newValue);
@@ -433,7 +445,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                 .addNode(Utils.make(new BorderPane(), borderPane -> {
                     String name = "播放下一首功能";
                     String method = "";
-                    Label label = Utils.createLabel(name, -1, Pos.CENTER_LEFT);
+                    Label label = Utils.createLabel("%s\n%s".formatted(name, "当前已关闭"), -1, Pos.CENTER_LEFT);
                     JFXTextField innerContainer = Utils.make(new JFXTextField(), control -> {
                         control.textProperty().addListener((observable, oldValue, newValue) -> {
                             getMusicServiceSettings().setSkipHeader(newValue);
@@ -459,7 +471,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                 .addNode(Utils.make(new BorderPane(), borderPane -> {
                     String name = "移除歌曲功能";
                     String method = "+空格+歌曲序号";
-                    Label label = Utils.createLabel(name, -1, Pos.CENTER_LEFT);
+                    Label label = Utils.createLabel("%s\n%s".formatted(name, "当前已关闭"), -1, Pos.CENTER_LEFT);
                     JFXTextField innerContainer = Utils.make(new JFXTextField(), control -> {
                                 control.textProperty().addListener((observable, oldValue, newValue) -> {
                                     getMusicServiceSettings().setRemoveHeader(newValue);
@@ -485,7 +497,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                 .addNode(Utils.make(new BorderPane(), borderPane -> {
                     String name = "置顶歌曲功能";
                     String method = "+空格+歌曲序号";
-                    Label label = Utils.createLabel(name, -1, Pos.CENTER_LEFT);
+                    Label label = Utils.createLabel("%s\n%s".formatted(name, "当前已关闭"), -1, Pos.CENTER_LEFT);
                     JFXTextField innerContainer = Utils.make(new JFXTextField(), control -> {
                         control.textProperty().addListener((observable, oldValue, newValue) -> {
                             getMusicServiceSettings().setTopHeader(newValue);
@@ -511,7 +523,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                 .addNode(Utils.make(new BorderPane(), borderPane -> {
                     String name = "立即播放歌曲功能";
                     String method = "+空格+歌曲序号";
-                    Label label = Utils.createLabel(name, -1, Pos.CENTER_LEFT);
+                    Label label = Utils.createLabel("%s\n%s".formatted(name, "当前已关闭"), -1, Pos.CENTER_LEFT);
                     JFXTextField innerContainer = Utils.make(new JFXTextField(), control -> {
                         control.textProperty().addListener((observable, oldValue, newValue) -> {
                             getMusicServiceSettings().setPlayHeader(newValue);
@@ -644,7 +656,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                                 button.disable(false);
                             }
                             MusicHandler.INSTANCE.clear();
-                        }).whenComplete((result, throwable) -> Platform.runLater(() -> QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentContainer(this.getParentContainer()), this.getId())));
+                        }).whenComplete((result, throwable) -> Platform.runLater(() -> QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentPage(this.getParentPage()), this.getId())));
                         button.disable(true);
                     });
                 }))

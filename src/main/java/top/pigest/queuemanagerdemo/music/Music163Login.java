@@ -134,7 +134,7 @@ public class Music163Login extends Scene {
         this.parent.closeLogin();
         Settings.saveCookie(true);
         Platform.runLater(() -> {
-            QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentContainer(this.parent.getParentContainer()), this.parent.getId());
+            QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentPage(this.parent.getParentPage()), this.parent.getId());
             Utils.showDialogMessage("登录成功", false, QueueManager.INSTANCE.getMainScene().getRootDrawer());
         });
     }

@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.window.login.LoginMain;
 import top.pigest.queuemanagerdemo.window.main.MainScene;
+import top.pigest.queuemanagerdemo.window.misc.MiscRegistryManager;
 
 import java.util.Objects;
 
@@ -18,8 +19,8 @@ public class QueueManager extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        System.setProperty("prism.lcdtext", "true");
         INSTANCE = this;
+        MiscRegistryManager.registerPrimary();
         this.primaryStage = primaryStage;
         primaryStage.setResizable(false);
         primaryStage.setTitle("Queue Manager");

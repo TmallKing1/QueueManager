@@ -22,7 +22,7 @@ public abstract class MultiMenuProvider<T extends Node> extends BorderPane imple
                     CornerRadii.EMPTY, new BorderWidths(1), Insets.EMPTY);
 
     private T innerContainer;
-    private Pane parentContainer;
+    private Pane parentPage;
 
     public MultiMenuProvider() {
         super();
@@ -60,14 +60,19 @@ public abstract class MultiMenuProvider<T extends Node> extends BorderPane imple
         return innerContainer;
     }
 
-    public MultiMenuProvider<T> withParentContainer(Pane parentContainer) {
-        this.parentContainer = parentContainer;
+    public MultiMenuProvider<T> withParentPage(Pane parentPage) {
+        this.parentPage = parentPage;
         return this;
     }
 
     @Override
-    public Pane getParentContainer() {
-        return parentContainer;
+    public void setParentPage(Pane parentPage) {
+        this.parentPage = parentPage;
+    }
+
+    @Override
+    public Pane getParentPage() {
+        return parentPage;
     }
 
     public static BorderPane createLRBorderPane(String title, int prefWidth, int prefHeight, Node innerContainer) {

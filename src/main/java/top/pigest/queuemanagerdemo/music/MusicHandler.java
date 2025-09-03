@@ -570,6 +570,7 @@ public class MusicHandler {
         musicPlayerStage.setScene(player);
         musicPlayerStage.setAlwaysOnTop(Settings.getMusicServiceSettings().alwaysOnTop);
         musicPlayerStage.setResizable(false);
+        musicPlayerStage.sizeToScene();
         musicPlayerStage.setTitle("Queue Manager 播放器");
         musicPlayerStage.show();
     }

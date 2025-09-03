@@ -25,6 +25,8 @@ public class MusicServiceSettings {
     public boolean displayLyric = true;
     @SerializedName("display_list")
     public boolean displayList = true;
+    @SerializedName("list_height")
+    public int listHeight = 300;
     @SerializedName("display_hint")
     public boolean displayHint = true;
     @SerializedName("default_playlist")
@@ -96,6 +98,11 @@ public class MusicServiceSettings {
 
     public void setDisplayList(boolean displayList) {
         this.displayList = displayList;
+        Settings.saveSettings();
+    }
+
+    public void setListHeight(int listHeight) {
+        this.listHeight = listHeight;
         Settings.saveSettings();
     }
 

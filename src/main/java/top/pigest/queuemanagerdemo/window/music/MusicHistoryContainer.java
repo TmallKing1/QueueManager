@@ -6,6 +6,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -22,7 +23,7 @@ import top.pigest.queuemanagerdemo.window.main.MultiMenuProvider;
 
 public class MusicHistoryContainer extends ListPagedContainer<Song> {
     public MusicHistoryContainer(String id, ObservableList<Song> songs) {
-        super(id, songs, 6, MusicHistoryContainer::createSongPreview, true, () -> {
+        super(id, songs, 6, true, () -> {
             StackPane pane = new StackPane();
             Text text = new Text("- 这里什么都没有 -");
             text.setFont(Settings.DEFAULT_FONT);
@@ -111,5 +112,10 @@ public class MusicHistoryContainer extends ListPagedContainer<Song> {
             MusicHandler.INSTANCE.play(song);
             Platform.runLater(() -> pauseButton(song, play, playIcon, pauseIcon));
         });
+    }
+
+    @Override
+    public Node getNode(Song item) {
+        return createSongPreview(item);
     }
 }
