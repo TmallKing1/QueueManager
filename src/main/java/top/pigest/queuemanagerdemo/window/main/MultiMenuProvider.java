@@ -15,7 +15,7 @@ import java.util.*;
 import java.util.List;
 import java.util.function.Supplier;
 
-public abstract class MultiMenuProvider<T extends Node> extends BorderPane implements ChildContainer {
+public abstract class MultiMenuProvider<T extends Node> extends BorderPane implements ChildPage {
     public static final BorderStroke DEFAULT_BORDER_STROKE =
             new BorderStroke(Color.TRANSPARENT, Color.TRANSPARENT, Paint.valueOf("0x22222233"), Color.TRANSPARENT,
                     BorderStrokeStyle.SOLID, null, null, null,

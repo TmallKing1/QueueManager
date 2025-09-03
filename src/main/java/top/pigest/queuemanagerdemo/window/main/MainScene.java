@@ -33,6 +33,7 @@ import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.control.QMButton;
 import top.pigest.queuemanagerdemo.control.TitledDialog;
 import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
+import top.pigest.queuemanagerdemo.window.music.MusicSystemPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +80,7 @@ public class MainScene extends Scene {
     private final List<QMButton> drawerButtons = new ArrayList<>();
 
     private boolean login = false;
-    private MainPageContainer mainPageContainer;
+    private MainPage mainPage;
 
     public MainScene() {
         super(new Pane(), 800, 600, false, SceneAntialiasing.BALANCED);
@@ -160,11 +161,11 @@ public class MainScene extends Scene {
         Settings.setMID(-1);
         Platform.runLater(() -> {
             this.login = false;
-            this.setMainContainer(new LoginContainer(), "登录页");
+            this.setMainContainer(new LoginPage(), "登录页");
             accountButton.setText("未登录");
             accountButton.setGraphic(null);
-            if (((LoginContainer) this.getMainContainer()).getLoginButton().isDisable()) {
-                ((LoginContainer) getMainContainer()).switchLoginButtonState();
+            if (((LoginPage) this.getMainContainer()).getLoginButton().isDisable()) {
+                ((LoginPage) getMainContainer()).switchLoginButtonState();
             }
             VBox vbox = new VBox();
             vbox.setAlignment(Pos.CENTER);
@@ -172,7 +173,7 @@ public class MainScene extends Scene {
             button.setPrefWidth(200);
             button.setGraphic(new FontIcon("far-user-circle"));
             button.setOnAction(event -> {
-                ((LoginContainer) getMainContainer()).login();
+                ((LoginPage) getMainContainer()).login();
                 drawer.close();
             });
             vbox.getChildren().add(button);
@@ -183,8 +184,8 @@ public class MainScene extends Scene {
     private void loggedIn(String name) {
         Platform.runLater(() -> {
             this.login = true;
-            mainPageContainer = new MainPageContainer(this);
-            this.setMainContainer(mainPageContainer, "主页");
+            mainPage = new MainPage(this);
+            this.setMainContainer(mainPage, "主页");
             accountButton.setText(name);
             accountButton.setGraphic(new FontIcon("far-user-circle"));
             VBox vbox = new VBox();
@@ -207,11 +208,11 @@ public class MainScene extends Scene {
     }
 
     public void switchLoginButtonState() {
-        if (getMainContainer() instanceof LoginContainer) {
-            ((LoginContainer) getMainContainer()).switchLoginButtonState();
+        if (getMainContainer() instanceof LoginPage) {
+            ((LoginPage) getMainContainer()).switchLoginButtonState();
         }
-        if (getMainContainer() instanceof MusicSystemContainer) {
-            ((MusicSystemContainer) getMainContainer()).switchLoginButtonState();
+        if (getMainContainer() instanceof MusicSystemPage) {
+            ((MusicSystemPage) getMainContainer()).switchLoginButtonState();
         }
     }
 
@@ -268,7 +269,7 @@ public class MainScene extends Scene {
         button1.setId(text);
         button1.setGraphic(new FontIcon(iconCode));
         button1.setOnAction(actionEvent -> {
-            this.setMainContainer(supplier, button1, mainPageContainer);
+            this.setMainContainer(supplier, button1, mainPage);
             this.getRootDrawer().close();
         });
         this.drawerButtons.add(button1);
@@ -277,8 +278,8 @@ public class MainScene extends Scene {
 
     public void refreshMenuButtons() {
         this.menuItems.getChildren().clear();
-        if (this.getMainContainer() instanceof ChildContainer childContainer) {
-            Pane parent = childContainer.getParentContainer();
+        if (this.getMainContainer() instanceof ChildPage childPage) {
+            Pane parent = childPage.getParentContainer();
             if (parent != null) {
                 QMButton back = new QMButton("", null, false);
                 back.setGraphic(new FontIcon("far-arrow-alt-circle-left"));
@@ -289,13 +290,13 @@ public class MainScene extends Scene {
         if (this.getMainContainer() instanceof MultiMenuProvider<?> multiMenuProvider) {
             this.menuItems.getChildren().addAll(multiMenuProvider.getMenuButtons());
             int currentMenuIndex = multiMenuProvider.getCurrentMenuIndex();
-            currentMenuIndex = this.getMainContainer() instanceof ChildContainer ? currentMenuIndex + 1 : currentMenuIndex;
+            currentMenuIndex = this.getMainContainer() instanceof ChildPage ? currentMenuIndex + 1 : currentMenuIndex;
             if (currentMenuIndex != -1) {
                 ((QMButton) this.menuItems.getChildren().get(currentMenuIndex)).setTextFill(Paint.valueOf("#1a8bcc"));
             }
         }
-        if (this.getMainContainer() instanceof NamedContainer namedContainer) {
-            bar.setText(namedContainer.getName());
+        if (this.getMainContainer() instanceof NamedPage namedPage) {
+            bar.setText(namedPage.getName());
         } else {
             bar.setText("");
         }
@@ -305,7 +306,7 @@ public class MainScene extends Scene {
         this.menuItems.getChildren().forEach(node -> ((QMButton) node).setTextFill(Paint.valueOf("BLACK")));
         if (this.getMainContainer() instanceof MultiMenuProvider<?> multiMenuProvider) {
             int currentMenuIndex = multiMenuProvider.getCurrentMenuIndex();
-            currentMenuIndex = this.getMainContainer() instanceof ChildContainer ? currentMenuIndex + 1 : currentMenuIndex;
+            currentMenuIndex = this.getMainContainer() instanceof ChildPage ? currentMenuIndex + 1 : currentMenuIndex;
             if (currentMenuIndex != -1) {
                 ((QMButton) this.menuItems.getChildren().get(currentMenuIndex)).setTextFill(Paint.valueOf("#1a8bcc"));
             }

@@ -27,7 +27,7 @@ import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.control.QMButton;
 import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
-import top.pigest.queuemanagerdemo.window.main.MusicSystemContainer;
+import top.pigest.queuemanagerdemo.window.music.MusicSystemPage;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -60,12 +60,12 @@ public class Music163Login extends Scene {
         BorderPane.setMargin(button, new Insets(0, 0, 25, 0));
         BorderPane.setAlignment(button, Pos.CENTER);
     });
-    private final MusicSystemContainer parent;
+    private final MusicSystemPage parent;
     private String qrcodeKey;
     private Timeline timeline;
     private boolean scanned;
 
-    public Music163Login(MusicSystemContainer parent) {
+    public Music163Login(MusicSystemPage parent) {
         super(new Pane(), 640, 480, false, SceneAntialiasing.BALANCED);
         this.parent = parent;
         this.setRoot(root);
@@ -134,7 +134,7 @@ public class Music163Login extends Scene {
         this.parent.closeLogin();
         Settings.saveCookie(true);
         Platform.runLater(() -> {
-            QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemContainer().withParentContainer(this.parent.getParentContainer()), this.parent.getId());
+            QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentContainer(this.parent.getParentContainer()), this.parent.getId());
             Utils.showDialogMessage("登录成功", false, QueueManager.INSTANCE.getMainScene().getRootDrawer());
         });
     }

@@ -1,4 +1,4 @@
-package top.pigest.queuemanagerdemo.window.main;
+package top.pigest.queuemanagerdemo.window.music;
 
 import com.google.gson.JsonObject;
 import com.jfoenix.controls.*;
@@ -37,7 +37,8 @@ import top.pigest.queuemanagerdemo.util.PagedContainerFactory;
 import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.control.QMButton;
 import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
-import top.pigest.queuemanagerdemo.window.music.MusicHistoryContainer;
+import top.pigest.queuemanagerdemo.window.main.MultiMenuProvider;
+import top.pigest.queuemanagerdemo.window.main.NamedPage;
 
 import java.net.CookieHandler;
 import java.net.CookieManager;
@@ -50,7 +51,7 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
-public class MusicSystemContainer extends MultiMenuProvider<Pane> implements NamedContainer {
+public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPage {
     private boolean preloaded = false;
     private boolean loggedIn = false;
     private Timeline preloadTimeline;
@@ -90,7 +91,7 @@ public class MusicSystemContainer extends MultiMenuProvider<Pane> implements Nam
         this.login.close();
     }
 
-    public MusicSystemContainer() {
+    public MusicSystemPage() {
         if (Settings.hasCookie("sDeviceId")) {
             this.preloaded = true;
             this.loggedIn = Settings.hasCookie("MUSIC_U");
@@ -120,7 +121,7 @@ public class MusicSystemContainer extends MultiMenuProvider<Pane> implements Nam
                 cookieStore.addCookie(cookie);
                 Settings.saveCookie(false);
                 this.preloaded = true;
-                Platform.runLater(() -> QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemContainer().withParentContainer(this.getParentContainer()), this.getId()));
+                Platform.runLater(() -> QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentContainer(this.getParentContainer()), this.getId()));
                 this.preloadTimeline.stop();
             }
         }));
@@ -643,7 +644,7 @@ public class MusicSystemContainer extends MultiMenuProvider<Pane> implements Nam
                                 button.disable(false);
                             }
                             MusicHandler.INSTANCE.clear();
-                        }).whenComplete((result, throwable) -> Platform.runLater(() -> QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemContainer().withParentContainer(this.getParentContainer()), this.getId())));
+                        }).whenComplete((result, throwable) -> Platform.runLater(() -> QueueManager.INSTANCE.getMainScene().setMainContainer(new MusicSystemPage().withParentContainer(this.getParentContainer()), this.getId())));
                         button.disable(true);
                     });
                 }))

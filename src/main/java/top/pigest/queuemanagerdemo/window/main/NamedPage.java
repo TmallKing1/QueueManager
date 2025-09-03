@@ -1,5 +1,5 @@
 package top.pigest.queuemanagerdemo.window.main;
 
-public interface NamedContainer {
+public interface NamedPage {
     String getName();
 }

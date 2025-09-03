@@ -2,6 +2,6 @@ package top.pigest.queuemanagerdemo.window.main;
 
 import javafx.scene.layout.Pane;
 
-public interface ChildContainer {
+public interface ChildPage {
     Pane getParentContainer();
 }

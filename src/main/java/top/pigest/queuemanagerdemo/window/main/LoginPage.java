@@ -10,7 +10,7 @@ import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.control.QMButton;
 import top.pigest.queuemanagerdemo.control.WhiteFontIcon;
 
-public class LoginContainer extends BorderPane {
+public class LoginPage extends BorderPane {
     private final QMButton loginButton = Utils.make(new QMButton("点击登录哔哩哔哩账号"), button -> {
         button.setPrefSize(350, 40);
         button.setOnAction(actionEvent -> login());
@@ -18,7 +18,7 @@ public class LoginContainer extends BorderPane {
         button.setGraphic(new WhiteFontIcon("fas-sign-in-alt"));
     });
 
-    public LoginContainer() {
+    public LoginPage() {
         super();
         VBox vBox = new VBox(10);
         vBox.setAlignment(Pos.CENTER);

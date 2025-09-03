@@ -25,11 +25,11 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
-public class DanmakuServiceContainer extends MultiMenuProvider<Pane> implements NamedContainer {
+public class DanmakuServicePage extends MultiMenuProvider<Pane> implements NamedPage {
     private BorderPane connectService;
     private Pane narratorService;
 
-    public DanmakuServiceContainer() {
+    public DanmakuServicePage() {
         super();
         this.setInnerContainer(this.getMenus().entrySet().iterator().next().getValue().get());
     }

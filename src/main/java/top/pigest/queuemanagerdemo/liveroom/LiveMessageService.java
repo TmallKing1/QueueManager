@@ -20,7 +20,7 @@ import top.pigest.queuemanagerdemo.music.MusicHandler;
 import top.pigest.queuemanagerdemo.system.WbiSign;
 import top.pigest.queuemanagerdemo.util.Utils;
 import top.pigest.queuemanagerdemo.control.QMButton;
-import top.pigest.queuemanagerdemo.window.main.DanmakuServiceContainer;
+import top.pigest.queuemanagerdemo.window.main.DanmakuServicePage;
 
 import java.io.*;
 import java.net.URI;
@@ -77,7 +77,7 @@ public class LiveMessageService implements WebSocket.Listener {
 
     public CompletionStage<?> onClose(WebSocket webSocket, int statusCode, String reason) {
         Platform.runLater(() -> {
-            if (QueueManager.INSTANCE.getMainScene().getBorderPane().getCenter() instanceof DanmakuServiceContainer container && container.getInnerContainer().getId().equals("c0")) {
+            if (QueueManager.INSTANCE.getMainScene().getBorderPane().getCenter() instanceof DanmakuServicePage container && container.getInnerContainer().getId().equals("c0")) {
                 container.disconnectedButton(((QMButton) ((BorderPane) container.getInnerContainer().getChildren().getFirst()).getRight()));
             }
         });
@@ -95,7 +95,7 @@ public class LiveMessageService implements WebSocket.Listener {
             this.addMessageHandler("narrator_sc", "SUPER_CHAT_MESSAGE", NarratorService::handleSuperChat);
             this.addMessageHandler("request_song", "DANMU_MSG", MusicHandler.INSTANCE::handleSingleDanmaku);
             Utils.showDialogMessage("连接直播弹幕服务成功", false, QueueManager.INSTANCE.getMainScene().getRootDrawer());
-            if (QueueManager.INSTANCE.getMainScene().getBorderPane().getCenter() instanceof DanmakuServiceContainer container && container.getInnerContainer().getId().equals("c0")) {
+            if (QueueManager.INSTANCE.getMainScene().getBorderPane().getCenter() instanceof DanmakuServicePage container && container.getInnerContainer().getId().equals("c0")) {
                 container.connectedButton(((QMButton) (((BorderPane) ((VBox) container.getInnerContainer().getChildren().getFirst()).getChildren().getFirst())).getRight()));
             }
         });

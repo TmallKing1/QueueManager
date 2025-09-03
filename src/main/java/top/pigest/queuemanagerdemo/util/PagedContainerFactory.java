@@ -45,12 +45,6 @@ public class PagedContainerFactory {
         return this;
     }
 
-    public PagedContainerFactory removeLastPage() {
-        pages.removeLast();
-        pages.setIndex(pages.getIndex() >= pages.size() ? pages.size() - 1 : pages.getIndex());
-        return this;
-    }
-
     public PagedContainerFactory addControl(String left, Node right) {
         return this.addControl(left, right, -1, -1);
     }
