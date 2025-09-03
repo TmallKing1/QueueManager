@@ -506,8 +506,9 @@ public class MusicHandler {
                 try {
                     int index = Integer.parseInt(text);
                     if (songs.size() > index && index >= 1 && isPass(info)) {
+                        Song song = songs.get(index);
                         endFirst(true);
-                        play(songs.get(index));
+                        play(song);
                     }
                 } catch (Exception e) {
                     if (getMusicServiceSettings().displayHint) {
