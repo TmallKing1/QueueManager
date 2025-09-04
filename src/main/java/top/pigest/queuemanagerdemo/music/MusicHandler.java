@@ -296,13 +296,8 @@ public class MusicHandler {
                     clear(false);
                     play(song);
                 } else {
-                    Iterator<Song> iterator = songs.iterator();
-                    while (iterator.hasNext()) {
-                        iterator.next();
-                        iterator.remove();
-                    }
                     this.addSong(song);
-                    if (getMusicServiceSettings().earlyDownload) {
+                    if (getMusicServiceSettings().earlyDownload || songs.size() <= 1) {
                         this.musicDownloader.download(song);
                     }
                 }
