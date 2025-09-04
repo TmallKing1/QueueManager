@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import top.pigest.queuemanagerdemo.QueueManager;
 import top.pigest.queuemanagerdemo.Settings;
+import top.pigest.queuemanagerdemo.liveroom.FansMedal;
 import top.pigest.queuemanagerdemo.liveroom.LiveRoomApi;
 import top.pigest.queuemanagerdemo.settings.MusicServiceSettings;
 import top.pigest.queuemanagerdemo.util.ArrayObservableList;
@@ -549,8 +550,8 @@ public class MusicHandler {
         }
         if (!pass && getMusicServiceSettings().skipUsers.contains(MusicServiceSettings.UserGroups.GUARD)) {
             try {
-                Map<Long, String> map = LiveRoomApi.getGuards();
-                pass = map.containsKey(uid);
+                FansMedal fansMedal = LiveRoomApi.getFansMedal(uid);
+                pass = fansMedal.getGuardType().isGuard();
             } catch (Exception ignored) {
             }
         }

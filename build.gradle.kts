@@ -49,7 +49,7 @@ dependencies {
     implementation("com.google.zxing:javase:3.5.3")
     implementation("org.apache.httpcomponents:httpclient:4.5.14")
     implementation("org.brotli:dec:0.1.2")
-    implementation("com.google.protobuf:protobuf-java:4.32.0-RC2")
+    implementation("com.google.protobuf:protobuf-java:4.32.0")
     //implementation("org.controlsfx:controlsfx:11.2.1")
     /*implementation("com.dlsc.formsfx:formsfx-core:11.6.0") {
         exclude(group = "org.openjfx")
