@@ -23,7 +23,7 @@ public class QueueManager extends Application {
         MiscRegistryManager.registerPrimary();
         this.primaryStage = primaryStage;
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Queue Manager");
+        primaryStage.setTitle("Queue Manager by @小猪之最Thepig");
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("icon.png"))));
         primaryStage.setScene(new MainScene());
         primaryStage.setOnCloseRequest(event -> {
