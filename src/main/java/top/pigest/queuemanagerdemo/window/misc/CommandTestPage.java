@@ -78,6 +78,6 @@ public class CommandTestPage extends VBox implements NamedPage, ChildPage {
 
     @Override
     public String getName() {
-        return "命令测试";
+        return "模拟弹幕";
     }
 }

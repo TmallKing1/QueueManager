@@ -284,6 +284,7 @@ public class MainScene extends Scene {
         QMButton button = new QMButton(null, backgroundColor, false);
         button.setId(text);
         button.setPrefWidth(200);
+        button.setPrefHeight(50);
         FontIcon fontIcon = new WhiteFontIcon(iconCode);
         button.setText(text);
         button.setGraphic(fontIcon);
