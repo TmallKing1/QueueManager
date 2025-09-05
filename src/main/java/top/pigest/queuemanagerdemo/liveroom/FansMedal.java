@@ -151,7 +151,7 @@ public class FansMedal {
                 getOldStyle().medalColorBorder,
                 BorderStrokeStyle.SOLID,
                 new CornerRadii(3, 3, 3, 3 ,false),
-                new BorderWidths(2)
+                new BorderWidths(1)
         )));
         StackPane namePane = new StackPane();
         namePane.setPrefHeight(40);
