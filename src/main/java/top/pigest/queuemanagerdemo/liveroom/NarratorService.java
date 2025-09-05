@@ -216,6 +216,7 @@ public class NarratorService {
     }
 
     public static void addString(String s) {
+        s = s.replace("\n", "");
         WAIT_FOR_SPEAKING.add(s);
         if (CHECK_THREAD == null || !CHECK_THREAD.isAlive()) {
             CHECK_THREAD = new Thread(() -> {
