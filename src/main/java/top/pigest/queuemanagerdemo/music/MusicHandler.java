@@ -545,7 +545,7 @@ public class MusicHandler {
         }
         if (!pass && getMusicServiceSettings().skipUsers.contains(MusicServiceSettings.UserGroups.GUARD)) {
             try {
-                FansMedal fansMedal = LiveRoomApi.getFansMedal(uid);
+                FansMedal fansMedal = LiveRoomApi.getFansMedalInfo(uid);
                 pass = fansMedal.getGuardType().isGuard();
             } catch (Exception ignored) {
             }

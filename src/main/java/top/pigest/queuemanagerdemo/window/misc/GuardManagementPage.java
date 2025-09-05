@@ -1,6 +1,7 @@
 package top.pigest.queuemanagerdemo.window.misc;
 
 import javafx.scene.layout.Pane;
+import top.pigest.queuemanagerdemo.util.DynamicListPagedContainer;
 import top.pigest.queuemanagerdemo.util.PagedContainerFactory;
 import top.pigest.queuemanagerdemo.window.main.MultiMenuProvider;
 import top.pigest.queuemanagerdemo.window.main.NamedPage;
@@ -16,7 +17,8 @@ public class GuardManagementPage extends MultiMenuProvider<Pane> implements Name
     }
 
     public Pane initC0() {
-        return new PagedContainerFactory("c0").build();
+        GuardContainer guardContainer = new GuardContainer("c0", 6);
+        return guardContainer.build();
     }
 
     public Pane getC0() {

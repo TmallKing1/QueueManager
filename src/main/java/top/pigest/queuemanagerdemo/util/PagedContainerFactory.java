@@ -1,5 +1,6 @@
 package top.pigest.queuemanagerdemo.util;
 
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -94,18 +95,28 @@ public class PagedContainerFactory {
         left.setAlignment(Pos.CENTER);
         right.setAlignment(Pos.CENTER);
         update();
-        left.setOnAction(event -> {
-            current.setCenter(pages.prev());
-            update();
-        });
-        right.setOnAction(event -> {
-            current.setCenter(pages.next());
-            update();
-        });
+        left.setOnAction(this::leftAction);
+        right.setOnAction(this::rightAction);
         lr.getChildren().addAll(left, text, right);
         this.current.setCenter(this.pages.current());
         this.current.setBottom(lr);
         BorderPane.setMargin(this.current, new Insets(10, 0, 5, 0));
         return this.current;
+    }
+
+    /**
+     * 子类换页时可能需要额外操作
+     */
+    public void leftAction(ActionEvent event) {
+        current.setCenter(pages.prev());
+        update();
+    }
+
+    /**
+     * 子类换页时可能需要额外操作
+     */
+    public void rightAction(ActionEvent event) {
+        current.setCenter(pages.next());
+        update();
     }
 }

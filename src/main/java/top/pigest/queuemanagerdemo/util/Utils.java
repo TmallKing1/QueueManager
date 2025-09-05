@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
@@ -165,5 +166,19 @@ public class Utils {
         MatrixToImageWriter.writeToPath(bitMatrix, "PNG", Settings.DATA_DIRECTORY.toPath().resolve("qrcode.png"));
         Image image = new Image(new FileInputStream(Settings.DATA_DIRECTORY.toPath().resolve("qrcode.png").toFile()));
         imageView.setImage(image);
+    }
+
+    public static Color toColor(int rgb) {
+        int red = (rgb >> 16) & 0xFF;
+        int green = (rgb >> 8) & 0xFF;
+        int blue = rgb & 0xFF;
+        return Color.rgb(red, green, blue);
+    }
+
+    public static String colorToString(Color color) {
+        int r = Math.toIntExact(Math.round(color.getRed() * 255.0));
+        int g = Math.toIntExact(Math.round(color.getGreen() * 255.0));
+        int b = Math.toIntExact(Math.round(color.getBlue() * 255.0));
+        return String.format("#%02x%02x%02x", r, g, b);
     }
 }

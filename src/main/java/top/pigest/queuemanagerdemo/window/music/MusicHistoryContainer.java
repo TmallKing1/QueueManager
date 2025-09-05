@@ -9,9 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import org.kordamp.ikonli.javafx.FontIcon;
 import top.pigest.queuemanagerdemo.Settings;
 import top.pigest.queuemanagerdemo.control.QMButton;
@@ -22,21 +20,15 @@ import top.pigest.queuemanagerdemo.util.ListPagedContainer;
 import top.pigest.queuemanagerdemo.window.main.MultiMenuProvider;
 
 public class MusicHistoryContainer extends ListPagedContainer<Song> {
+
     public MusicHistoryContainer(String id, ObservableList<Song> songs) {
-        super(id, songs, 6, true, () -> {
-            StackPane pane = new StackPane();
-            Text text = new Text("- 这里什么都没有 -");
-            text.setFont(Settings.DEFAULT_FONT);
-            text.setFill(Color.GRAY);
-            pane.getChildren().add(text);
-            pane.setPadding(new Insets(30));
-            return pane;
-        });
+        super(id, songs, 6, true, DEFAULT_EMPTY_SUPPLIER);
         songs.addListener((ListChangeListener<Song>) c -> Platform.runLater(this::refresh));
     }
 
     private static BorderPane createSongPreview(Song song) {
         BorderPane borderPane = new BorderPane();
+
         ImageView imageView = new ImageView();
         imageView.setImage(song.getCover(imageView::setImage));
         imageView.setFitWidth(60);
@@ -67,7 +59,7 @@ public class MusicHistoryContainer extends ListPagedContainer<Song> {
         BorderPane.setAlignment(hBox, Pos.CENTER_RIGHT);
 
         borderPane.setBorder(new Border(MultiMenuProvider.DEFAULT_BORDER_STROKE));
-        borderPane.setPadding(new Insets(10, 10, 10, 10));
+        borderPane.setPadding(new Insets(10));
         return borderPane;
     }
 

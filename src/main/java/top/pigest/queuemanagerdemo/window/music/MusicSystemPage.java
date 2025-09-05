@@ -167,10 +167,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                     ctrl.setPrefHeight(40);
                     ctrl.setPrefWidth(180);
                     ctrl.valueProperty().addListener((observable, oldValue, newValue) -> {
-                        int r = Math.toIntExact(Math.round(newValue.getRed() * 255.0));
-                        int g = Math.toIntExact(Math.round(newValue.getGreen() * 255.0));
-                        int b = Math.toIntExact(Math.round(newValue.getBlue() * 255.0));
-                        getMusicServiceSettings().setBackgroundColor(String.format("#%02x%02x%02x", r, g, b));
+                        getMusicServiceSettings().setBackgroundColor(Utils.colorToString(newValue));
                         MusicHandler.INSTANCE.getPlayer().updateColor();
                     });
                 }))
@@ -192,10 +189,7 @@ public class MusicSystemPage extends MultiMenuProvider<Pane> implements NamedPag
                     ctrl.setPrefHeight(40);
                     ctrl.setPrefWidth(180);
                     ctrl.valueProperty().addListener((observable, oldValue, newValue) -> {
-                        int r = Math.toIntExact(Math.round(newValue.getRed() * 255.0));
-                        int g = Math.toIntExact(Math.round(newValue.getGreen() * 255.0));
-                        int b = Math.toIntExact(Math.round(newValue.getBlue() * 255.0));
-                        getMusicServiceSettings().setTextColor(String.format("#%02x%02x%02x", r, g, b));
+                        getMusicServiceSettings().setTextColor(Utils.colorToString(newValue));
                         MusicHandler.INSTANCE.getPlayer().updateColor();
                     });
                 }))

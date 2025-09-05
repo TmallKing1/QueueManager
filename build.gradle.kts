@@ -34,12 +34,13 @@ application {
         "--add-opens=javafx.controls/com.sun.javafx.scene.control=com.jfoenix",
         "--add-opens=javafx.base/com.sun.javafx.binding=com.jfoenix",
         "--add-opens=javafx.base/com.sun.javafx.event=com.jfoenix",
-        "--add-opens=javafx.graphics/com.sun.javafx.stage=com.jfoenix")
+        "--add-opens=javafx.graphics/com.sun.javafx.stage=com.jfoenix",
+        "--add-opens=javafx.graphics/com.sun.javafx.scene=com.jfoenix")
 }
 
 javafx {
     version = "21"
-    modules = listOf("javafx.controls", "javafx.fxml", "javafx.web")
+    modules = listOf("javafx.controls", "javafx.fxml", "javafx.web", "javafx.graphics")
 }
 
 dependencies {

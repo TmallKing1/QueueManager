@@ -1,17 +1,40 @@
 package top.pigest.queuemanagerdemo.util;
 
+import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import top.pigest.queuemanagerdemo.Settings;
 
 import java.util.List;
 import java.util.function.Supplier;
 
 public abstract class ListPagedContainer<T> extends PagedContainerFactory {
+    public static final Supplier<Node> DEFAULT_EMPTY_SUPPLIER = () -> {
+        StackPane pane = new StackPane();
+        Text text = new Text("- 这里什么都没有 -");
+        text.setFont(Settings.DEFAULT_FONT);
+        text.setFill(Color.GRAY);
+        pane.getChildren().add(text);
+        pane.setPadding(new Insets(30));
+        return pane;
+    };
+    public static final Supplier<Node> LOADING_SUPPLIER = () -> {
+        StackPane pane = new StackPane();
+        Text text = new Text("--- 加载中 ---");
+        text.setFont(Settings.DEFAULT_FONT);
+        text.setFill(Color.GRAY);
+        pane.getChildren().add(text);
+        pane.setPadding(new Insets(30));
+        return pane;
+    };
     private final List<T> items;
     private final int maxPerPage;
     private final boolean reversed;
-    private final Supplier<Node> emptySupplier;
+    private Supplier<Node> emptySupplier;
     public ListPagedContainer(String id, List<T> items, int maxPerPage, boolean reversed) {
-        this(id,  items, maxPerPage, reversed, () -> null);
+        this(id,  items, maxPerPage, reversed, DEFAULT_EMPTY_SUPPLIER);
     }
 
 
@@ -52,6 +75,10 @@ public abstract class ListPagedContainer<T> extends PagedContainerFactory {
 
     protected List<T> getItems() {
         return items;
+    }
+
+    public void setEmptySupplier(Supplier<Node> emptySupplier) {
+        this.emptySupplier = emptySupplier;
     }
 
     public abstract Node getNode(T item);

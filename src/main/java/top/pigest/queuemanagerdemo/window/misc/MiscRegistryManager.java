@@ -11,7 +11,8 @@ public class MiscRegistryManager {
     }
 
     public static void registerPrimary() {
-        register(new MiscFunction("大航海管理", GuardManagementPage::new, "#F08650", "fas-anchor"));
+        register(new MiscFunction("网页开播", null, "#284CB8", "fas-video"));
+        register(new MiscFunction("大航海列表", GuardManagementPage::new, "#F08650", "fas-anchor"));
         register(new MiscFunction("命令测试", CommandTestPage::new, "#003847", "fas-code"));
     }
 
